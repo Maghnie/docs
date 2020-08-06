@@ -14,23 +14,23 @@ Welcome! You are here already.
 
 ### [aedifion.io](aedifion.io/)
 
-This page and its sub pages offer an high-level overview of the basic concepts of the aedifion.io IoT platform which has a special focus on advanced operation of energy-related plants, buildings, and districts.
+This page and its sub pages offer a high-level overview of the basic concepts of the aedifion.io IoT platform which has a special focus on advanced operation of energy-related plants, buildings, and districts.
 
 ### [aedifion.analytics](aedifion.analytics/)
 
-This page offers an high-level overview of the basic technical concepts and features of aedifion.analytics which offers a suite of analysis and optimization algorithms on top of the basic aedifion.io platform. 
+This page offers a high-level overview of the basic technical concepts and features of aedifion.analytics which offers a suite of analysis and optimization algorithms on top of the basic aedifion.io platform. 
 
 ### [aedifion.controls](aedifion.controls.md)
 
-This page offers an high-level overview of the basic technical concepts and features of the aedifion.controls product which builds on top of aedifion.io and allows to actively control buildings and override local control loops, e.g., acting upon the results of aedifion.analytics. 
+This page offers a high-level overview of the basic technical concepts and features of the aedifion.controls product which builds on top of aedifion.io and allows to actively control buildings and override local control loops, e.g., acting upon the results of aedifion.analytics. 
 
 ### [Glossary](glossary.md)
 
-The glossary provides definitions of the relevant vocabulary to streamline communication. This is meant as a single-source-of-truth for special wording used in this documentation and all of products of aedifion.
+The glossary provides definitions of the relevant vocabulary to streamline communication. This is meant as a single-source-of-truth for special terms used in this documentation and all the products of aedifion.
 
 ### [Contact](contact.md)
 
-There are different ways to get in contact with us. Please don't hesitate. 
+Feel free to get in touch with us through the different ways available. 
 
 ### Developers
 
@@ -38,7 +38,7 @@ This group of pages provides specifications, guides, and tutorials for developer
 
 #### [HTTP API](developers/api-documentation/)
 
-Detailed technical specifications of our restful HTTP API in Open API 2.0 format as well as guides on how to generate API clients in different programming languages from that specification. This is complemented by an extensive collection of tutorials for the restful HTTP API of the aedifion.io platform: Covering topics ranging from administration of user, projects, permissions, data and metadata to the setup of alarms, analytics, and automated controls. 
+Available here are detailed technical specifications of our restful HTTP API in Open API 2.0 format as well as guides on how to generate API clients in different programming languages from that specification. This is complemented by an extensive collection of tutorials for the restful HTTP API of the aedifion.io platform, covering topics ranging from administration of users, projects, permissions, data and metadata to the setup of alarms, analytics, and automated controls. 
 
 #### [MQTT API](developers/mqtt-api/)
 
