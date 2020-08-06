@@ -10,19 +10,19 @@ aedifion.controls consists of virtually embedded control algorithms that can be 
 
 In future, the user can choose control algorithms from the aedifion control library and set it up by adding parameters, system outputs and controller outputs/manipulated variables. The algorithm is then operated as-a-service within aedifion.io. All interaction will be available via API.
 
-For now, aedifion staff sets up the control algorithms from the aedifion control library according to the users need.
+For now, aedifion staff sets up the control algorithms from the aedifion control library according to user needs.
 
-In the following we introduce control functionalities and algorithms in more detail. Visit [control specifications](engineers/controls.md) on in-depth information on the offered control algorithms.
+In the following we introduce control functionalities and algorithms in more detail. Visit [control specifications](engineers/controls.md) for in-depth information on the offered control algorithms.
 
-## Control algorithms with feedback usage.
+## Control algorithms with feedback usage
 
 Control algorithms are defined as automatically generated actions with feedback usage.
 
-In the meaning of the classic control theory, control algorithms are defined as closed loop control systems. Find a schematic diagram of such a system below. The difference between the feedback of the controlled system and the setpoint is the input to the system's controller. The generated algorithms output is the input to the controlled system.
+In accordance with classic control theory, control algorithms are defined as closed loop control systems. Find a schematic diagram of such a system below. The difference between the feedback from the controlled system and the setpoint is the input to the system's controller. The generated algorithms output is the input to the controlled system.
 
 ![closed loop control system to explain concept of control algorithms](.gitbook/assets/bildschirmfoto-2019-03-05-um-10.21.10.png)
 
-Find the detailed descriptions of our currently available control algorithms [here](engineers/controls.md).
+Find detailed descriptions of our available control algorithms [here](engineers/controls.md).
 
 ## Place of implementation
 
@@ -40,15 +40,15 @@ Using the remote control functionalities, you can directly operate local plants 
 
 aedifion.controls features various control algorithms that we operate within the aedifion.io platform. See section[ control algorithms](engineers/controls.md) for an introduction of available control algorithms.
 
-As custom service, aedifion deploys and hosts your proprietary control algorithms as cloud control algorithm. It is now possible to easily manage your estate and buildings in order realize an overall demand side management. Please do not hesitate to [contact us](contact.md) to discuss your needs. 
+As a custom service, aedifion deploys and hosts your proprietary control algorithms as cloud control algorithms. It is now possible to easily manage your estate and buildings in order to realize an overall demand side management. Please do not hesitate to [contact us](contact.md) to discuss your needs. 
 
 #### Edge control
 
-In edge control, control algorithms run directly on the aedifion edge device. This accounts for low communication latency. At the same time, it lowers the risks of down times due to communication issues between the edge device and the cloud.
+In edge control, control algorithms run directly on the aedifion edge device. This accounts for low communication latency. At the same time, it lowers the risks of downtimes due to communication issues between the edge device and the cloud.
 
 ### Deployment scenarios
 
-Control algorithms can be operated in different ways. A cloud-operated algorithm uses the internet to communicate its control decisions or manipulated variables. Contrary, an edge-operated algorithm is executed locally on the aedifion.io edge device within the customer's control system and only requires Internet connectivity to receive commands and updates. An air-gapped deployment is a more classical set up, quite like a local programmable logic controller, but with a more advanced control runtime, offering the possibility to execute more complex controls, including optimizations and simulations.
+Control algorithms can be operated in different ways. A cloud-operated algorithm uses the internet to communicate its control decisions or manipulated variables. Contrarily, an edge-operated algorithm is executed locally on the aedifion.io edge device within the customer's control system and only requires Internet connectivity to receive commands and updates. An air-gapped deployment is a more classical set up, quite like a local programmable logic controller, but with a more advanced control runtime, offering the possibility to execute more complex controls, including optimizations and simulations.
 
 _This documentation continues with an introduction of aedifion.custom._ 
 

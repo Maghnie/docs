@@ -1,5 +1,5 @@
 ---
-description: Get into contact with aedifion
+description: Get in contact with aedifion
 ---
 
 # Contact
