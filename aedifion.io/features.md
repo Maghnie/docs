@@ -10,7 +10,7 @@ This page offers a brief and high-level description of all important features of
 
 ## Data ingress
 
-aedifion.io offers plant-, building-, and even district-wide data acquisition from diverse data sources. The platform speaks most industry bus communication standards and can automatically ingest data from your plant, building, or district using auto-discovery of all available [datapoints ](https://docs.aedifion.io/docs/glossary#datapoint)and [devices](https://docs.aedifion.io/docs/glossary#device) for easy set-up. Furthermore, the platform integrates various other IP-based data sources, e.g., ranging from your existing legacy data bases and servers over your Exchange server to third-party data sources such as weather forecasts. Finally, live data can be streamed directly into aedifion.io via MQTT while historic and batch data can be ingested using file upload in different formats such as CSV.
+aedifion.io offers plant-, building-, and even district-wide data acquisition from diverse data sources. The platform speaks most industry bus communication standards and can automatically ingest data from your plant, building, or district using auto-discovery of all available [datapoints ](https://docs.aedifion.io/docs/glossary#datapoint)and [devices](https://docs.aedifion.io/docs/glossary#device) for easy set-up. Furthermore, the platform integrates various other IP-based data sources, e.g., ranging from your existing legacy databases and servers over your Exchange server to third-party data sources such as weather forecasts. Finally, live data can be streamed directly into aedifion.io via MQTT while historic and batch data can be ingested using file upload in different formats such as CSV.
 
 | Data source | Example |
 | :--- | :--- |
@@ -31,7 +31,7 @@ For each integrated [device](https://docs.aedifion.io/docs/glossary#device) and 
 
 ### AI-generated meta data
 
-Our platform augments the existing the Meta data obtained from the automation network with Artificial Intelligence \(AI\)-generated information. Each datapoint and its observations are analyzed and an AI generates annotations from a set of predefined classes. The newly generated descriptions can be searched and filtered to organize your building. Since this is a statistical decision process, each annotation also provides a probability on the AI's confidence.
+Our platform augments the existing meta data obtained from the automation network with Artificial Intelligence \(AI\)-generated information. Each datapoint and its observations are analyzed and an AI generates annotations from a set of predefined classes. The newly generated descriptions can be searched and filtered to organize your building. Since this is a statistical decision process, each annotation also provides a probability on the AI's confidence.
 
 ### Weather and weather forecast data
 
@@ -51,7 +51,7 @@ aedifion.io offers various ways of data provision, i.e., via a web frontend, via
 
 ### Frontend
 
-The aedifion.io web frontend offers, among other features, search of data and meta data, different means of personalization, various flavors of plots, and export of data. A major revision with better user experience and more functionality is scheduled for mid/end 2019.
+The aedifion.io web frontend offers, among other features, search of data and meta data, different means of personalization, various flavors of plots, and export of data. 
 
 _Learn more? Explore the_ [_frontend guide_](frontend-1.md) _or visit our frontend at_ [_www.aedifion.io_](https://www.aedifion.io)_._
 
@@ -95,7 +95,7 @@ Examples for stream processes:
 
 ### Batch
 
-Batch processes cover more complex calculations and account for the more complex use cases of the ISO 50 001 "Energy Management" standard. A batch process is not operated continuously - like stream processes - but on a certain trigger, e.g., a pre-set time or up on your request. This process can run complex calculation using high-volumes of historical data.
+Batch processes cover more complex calculations and account for the more complex use cases of the ISO 50 001 "Energy Management" standard. A batch process is not operated continuously - like stream processes - but on a certain trigger, e.g., a pre-set time or on your request. This process can run complex calculations using high-volumes of historical data.
 
 {% hint style="info" %}
 Examples for batch processes: 
@@ -109,7 +109,7 @@ Examples for batch processes:
 
 A virtual datapoint is a datapoint not gathered from a local plant but denotes a predefined stream or batch process that runs on one or multiple datapoints. The virtual datapoint makes the output continuously available in the form of a new datapoint in aedifion.io's time series database. 
 
-You can choose from a continuously growing list of virtual datapoints engineered and provided by aedifion and apply them to your project. Of course, all alarming and notification paradigms that run on the original physical datapoints can also be used on such virtual datapoints. This allows you, e.g., to monitor and alert on complex relationships and conditions.
+You can choose from a continuously growing list of virtual datapoints engineered and provided by aedifion and apply them to your project. Of course, all alarming and notification paradigms that run on the original physical datapoints can also be used on such virtual datapoints. This allows you, e.g., to monitor and receive alerts on complex relationships and conditions.
 
 {% hint style="info" %}
 Examples for virtual datapoints:
@@ -133,7 +133,7 @@ You can flag any datapoint as a favorite, e.g., to mark frequently inspected or 
 
 ### Datapoint keys
 
-A [datapoint key](../glossary.md#datapointkey) is a datapoint naming schemes that groups alternate for all or some datapoints of a building under a common key. Alternate datapointkeys are required, e.g., to address needs of different datapoint naming schemes such as as [Brick](https://brickschema.org/) or [BUDO](https://github.com/RWTH-EBC/BUDO), logical uniqueness, or simply individual user preferences. 
+A [datapoint key](../glossary.md#datapoint-key) is a datapoint naming scheme that groups alternate names for all or some datapoints of a building under a common key. Alternate datapoint keys are required, e.g., to address needs of different datapoint naming schemes such as [Brick](https://brickschema.org/) or [BUDO](https://github.com/RWTH-EBC/BUDO), logical uniqueness, or simply individual user preferences. 
 
 _Learn more? Explore our_ [_tutorials on favorites, tagging, and renaming_](../developers/api-documentation/guides-and-tutorials/tagging.md)_._
 
@@ -161,7 +161,7 @@ _Learn more? Read about the_ [_existing integrations_](integrations.md)_._
 
 ## Basic setpoint management, schedules and system overwrite
 
-aedifion.io provides basic control functions whenever a datapoint is generally controllable in the field. This covers simple setpoint writing as well as manipulating local control loops or even overwriting local system output. Further, aedifion.io can provide a decent scheduling functionality that allows you to robustly execute control sequences on the aedifion edge device and monitor and control the execution from cloud as well as to even chain control to our integrations such as Alexa or chatbots. In extreme cases, local control hardware can be reduced to in-out-devices whereas all logic is operated in the cloud.
+aedifion.io provides basic control functions whenever a datapoint is generally controllable in the field. This covers simple setpoint writing as well as manipulating local control loops or even overwriting local system output. Further, aedifion.io can provide decent scheduling functionality that allows you to robustly execute control sequences on the aedifion edge device and monitor and control the execution from cloud as well as to even chain control to our integrations such as Alexa or chatbots. In extreme cases, local control hardware can be reduced to in-out-devices whereas all logic is operated in the cloud.
 
 {% hint style="danger" %}
 Safety of cloud-based controls is critical. So this part of aedifion.io has to be setup manually by aedifion. All setpoints and schedules written are being logged.
