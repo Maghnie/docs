@@ -9,7 +9,7 @@ description: >-
 
 ## Overview
 
-The aedifion.io platform allows semantic and unified data modelling of [time series ](../../glossary.md#time-series)and meta data by mapping this data to [data models of components](../../glossary.md#component-data-model). Data models of components are based on real [components](../../glossary.md#component) of buildings and energy systems and thus enable intuitive modelling of such systems. The semantic data model allows generic application of analysis, control or any other algorithm using the semantic structured data as an input. It can be applied in third party algorithms via our [API](../apis.md).
+The aedifion.io platform allows semantic and unified data modelling of [time series ](../../glossary.md#time-series)and meta data by mapping this data to [data models of components](../../glossary.md#component-data-model). Data models of components are based on real [components](../../glossary.md#component) of buildings and energy systems and thus enable intuitive modelling of such systems. The semantic data model allows generic application of analysis, control or any other type of algorithm using the semantic structured data as an input. It can be applied in third party algorithms via our [API](../apis.md).
 
 In this article, we first provide information on [semantic modelling of energy systems](semantic-data-model.md#semantic-modelling) via component data models, followed by an explanation of the [mapping process](semantic-data-model.md#mapping-process) and application of the semantic data model  [for generic algorithms](semantic-data-model.md#application-in-algorithms).
 
@@ -25,7 +25,7 @@ To put it in a nutshell: Plants, buildings, districts, and energy systems are se
 
 ### Mapping process
 
-Mapping is the process of linking datapoints and meta data to the semantic data model of a specific project. Thus, it is the process of describing the assignment of datapints to pins and attributes to instanced component.
+Mapping is the process of linking datapoints and meta data to the semantic data model of a specific project. Thus, it is the process of describing the assignment of datapints to pins and attributes to an instanced component.
 
 **Mapping datapoints to pins** of instanced components specifies the semantic of datapoints and their component affiliation. Information on a component affiliation can be taken from planning documentation, system overviews, and also native meta data generated and collected by aedifion.
 
