@@ -61,7 +61,7 @@ In the above example, the sensor `Office10_RoomTemperature` is read every 1,5 mi
 
 Meta data refers to all data that remains largely unchanged over time such as units and descriptions of datapoints, but also user-generated meta-data such as favorites, renamings, or custom plot views.
 
-Most meta data is stored within tags that can then be freely assigned to projects, devices, or datapoints. The main ingredients of a single tag are a short \(string\) key and an arbitrarily long \(string\) value. A tag can be as short and simple as `'unit'='°C'` or as long and complex as a JSON-encoded configuration of a custom plotview, e.g.,
+Most meta data is stored within tags that can then be freely assigned to projects, devices, or datapoints. The main ingredients of a single tag are a short \(string\) key and an arbitrarily long \(string\) value. A tag can be as short and simple as `'unit'='°C'` or as long and complex as a JSON-encoded configuration of a custom plot view, e.g.,
 
 ```javascript
 'plotView':'{"chart":{"type":"line","datapoints":[{"plotPosition":"0","dataPointID":"bacnet100-4120-CO2","project_id":"4","interpolation":"zero-order-hold","marker":"","dashstyle":"solid"},{"plotPosition":"1","dataPointID":"bacnet100-4120-Humidity-HUM","project_id":"4","interpolation":"zero-order-hold","marker":"","dashstyle":"solid"},{"plotPosition":"2","dataPointID":"bacnet100-4120-Window-Closed-WIN","project_id":"4","interpolation":"zero-order-hold","marker":"","dashstyle":"solid"},{"plotPosition":"3","dataPointID":"bacnet100-4120-Ambient-air-temperature-T_Amb","project_id":"4","interpolation":"zero-order-hold","marker":"","dashstyle":"solid"}]}}'
@@ -87,7 +87,7 @@ A typical non-residential building has between 1000 and 15 000 datapoints that c
 * Alarm states
 * ...
 
-_Want to see in detail which datapoints are discovered?_ The following is a complete list of datapoints that the aedifion edge device has discovered in the main building of the EON ERC.
+_Want to see in detail which datapoints are discovered?_ The following is a complete list of datapoints that the aedifion edge device has discovered in the main building of the E.ON ERC.
 
 {% file src="../../.gitbook/assets/eonerc-datapoints.csv" caption="Datapoints in EON ERC" %}
 
@@ -122,13 +122,13 @@ units             | 'percent'
 
 A virtual datapoint is a datapoint not gathered from a local plant but denotes a predefined stream or batch process that runs on one or multiple datapoints. The virtual datapoint makes the output continuously available in the form of a new datapoint in aedifion.io's time series database. 
 
-The time series based on the virtual datapoint's result exactly handles the same as[ time series data](./#time-series-data). Virtual datapoints are denoted as such in their datapoint key according to customers conventions. 
+The time series based on the virtual datapoint's result are handled exactly the same as[ time series data](./#time-series-data). Virtual datapoints are denoted as such in their datapoint key according to customers conventions. 
 
 ### AI-generated meta data
 
-The aedifion.io platform uses state-of-the-art machine learning and AI techniques to augment the already provided data. From the already given observations and metadata collected from the edge devices it regularly predicts additional tags \(e.g. the type of the data point\) and provides them via the API or the frontend. The AI system is able to learn and is therefore expanded perpetually to further improve the quality of the annotations.
+The aedifion.io platform uses state-of-the-art machine learning and AI techniques to augment the already provided data. From the already given observations and metadata collected from the edge devices, it regularly predicts additional tags \(e.g. the type of the data point\) and provides them via the API or the frontend. The AI system is able to learn and is therefore expanded perpetually to further improve the quality of the annotations.
 
-The latest classifier we provide, is able to classify the data into five sets of classes: `L1_analog_digital`, `L2_virtual`, `L3_direction`, `L4_type` and `L5_unit`. All sets of classes are ordered in a tree like structure separated by slashes \(like a directory structure or paths on a website\). For example within L4\_type `/position/damper position` is closely related to `/position/valve position` and not related to `/temperature/liquid/hot/return flow`. A full list of the classes is shown below.
+The latest classifier we provide, is able to classify the data into five sets of classes: `L1_analog_digital`, `L2_virtual`, `L3_direction`, `L4_type` and `L5_unit`. All sets of classes are ordered in a tree-like structure separated by slashes \(like a directory structure or paths on a website\). For example within L4\_type `/position/damper position` is closely related to `/position/valve position` and not related to `/temperature/liquid/hot/return flow`. A full list of the classes is shown below.
 
 1. `L1_analog_digital`
 
@@ -262,9 +262,9 @@ Each time the classifier runs, a tag for the datapoint is created, which looks a
 ```
 {% endcode %}
 
-The _key_ of the tag is one of the class sets e.g. "L4\_type". The _value_ of this tag is `/gas concentration/CO2`, which indicates that the analyzed datapoint is recognized as a CO2 sensor. A complete list of all the possible values and their meaning you can find within the [engineers' specification](https://docs.aedifion.io/docs/engineers/artificial-intelligence) section. With just those properties you can easily filter the set of datapoints. 
+The _key_ of the tag is one of the class sets e.g. "L4\_type". The _value_ of this tag is `/gas concentration/CO2`, which indicates that the analyzed datapoint is recognized as a CO2 sensor. A complete list of all the possible values and their meanings can be found within the [engineers' specification](https://docs.aedifion.io/docs/engineers/artificial-intelligence) section. With just those properties you can easily filter the set of datapoints. 
 
-The tag has as _source_ "ai", since it is originating from an AI-based classifier. Each classifier also provides the property _probability._ In this example the classifier has a confidence of 85.73% that the given classification is correct.
+The tag has "ai" as _source_, since it is originating from an AI-based classifier. Each classifier also provides the property _probability._ In this example the classifier has a confidence of 85.73% that the given classification is correct.
 
 For more information on the classification process refer to the section on [artificial intelligence based meta data generation](ai-meta-data-generation.md).
 
@@ -284,5 +284,5 @@ _Learn more? Explore the_ [_weather data specifications_](../../engineers/weathe
 
 
 
-_On the next subsubpage, we introduce our AI-based meta data generation. On the next subpage we introduce integrations to aedifion.io._
+_On the next subsubpages, we introduce our semantic data model, followed by our AI-based meta data generation._
 
