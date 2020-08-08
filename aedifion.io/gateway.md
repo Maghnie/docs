@@ -10,7 +10,7 @@ The aedifion edge device is an industrial PC enabling data connection between lo
 
 The edge device is connected to the internet. If a plant's automation network has no internet connection, it uses its second Ethernet adapter to connect to the Building Automation Network.
 
-The edge device operates fully plug-and-play from a customers perspective. Once connected to the internet, the edge device connects to the aedifion.io platform where aedifion's staff take care of its configuration.
+The edge device operation is fully plug-and-play from the customer perspective. Once connected to the internet, the edge device connects to the aedifion.io platform where aedifion's staff take care of its configuration.
 
 ![](../.gitbook/assets/edgedevicebild.png)
 
