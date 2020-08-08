@@ -8,7 +8,7 @@ description: Overview of the APIs of the aedifion.io cloud platform.
 
 At aedifion, we firmly believe that any successful future building monitoring, analysis and control systems must be _open._ Such an open solution allows freely integrating, e.g., third party data sources, services, platforms, databases, output channels, and so forth. And, vice versa, it can also be integrated into third party services, platforms, databases, output channels and so forth.
 
-The single most important feature of an _open_ platform is a comprehensive, well-documented, free and open application programming interfaces \(APIs\). The aedifion.io platform provides such APIs to any customer. 
+The single most important feature of an _open_ platform is comprehensive, well-documented, free and open application programming interfaces \(APIs\). The aedifion.io platform provides such APIs to any customer. 
 
 This article provides a short overview of the APIs of the aedifion.io platform, their features and primary use cases.
 
@@ -39,7 +39,7 @@ Most use cases of the aedifion.io platform center around collecting and acting u
 
 * subscribing to all measurement data collected from your buildings, plants, and districts at the level of whole projects or down to single datapoints
 * publishing data into the aedifion.io platform via MQTT
-* receiving  to notifications and alarms via MQTT
+* receiving notifications and alarms via MQTT
 * websockets support
 * ...
 
@@ -53,7 +53,7 @@ _Learn more? Go through_ [_the step-by-step tutorials_](../developers/mqtt-api/g
 
 
 
-_This documentation continues with an introduction of the aedifion beta frontend._
+_This documentation continues with an introduction of the aedifion frontend._
 
 
 
