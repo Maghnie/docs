@@ -24,7 +24,7 @@ Available component data models
 Hints for a smooth application of [component data models](../glossary.md#component-data-model) and their mapping.
 
 * **1-to-n mapping:** One [datapoint](../glossary.md#datapoint) can be mapped to several [instantiated components](../glossary.md#instanced-component) to allow data models of different granularity.
-* **Unit sensitivity:** To this state, our algorithms are unit sensitive. Every [pin ](../glossary.md#pin)and [attribute ](../glossary.md#attribute)is specified with an unit. Mind the specifications.
+* **Unit sensitivity:** To this state, our algorithms are unit sensitive. Every [pin ](../glossary.md#pin)and [attribute ](../glossary.md#attribute)is specified with a unit. Mind the specifications.
 
 {% hint style="danger" %}
 If unit conventions are disregarded, this can lead to errors and even misleading results of algorithms.
@@ -977,7 +977,7 @@ The attribute adjusts the volume flow pin unit on the condenser as well as the e
 
 ## Humidity Conditioner
 
-The **Humidity Conditioner** component data model is representative for a subset of an AHU with humidity conditioning. It is usefull to analyse AHU performance regarding the change of the air flow water load / humidity.
+The **Humidity Conditioner** component data model is representative for a subset of an AHU with humidity conditioning. It is useful to analyse AHU performance regarding the change of the air flow water load / humidity.
 
 {% tabs %}
 {% tab title="Component Identifier" %}
