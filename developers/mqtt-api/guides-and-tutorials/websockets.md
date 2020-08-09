@@ -81,7 +81,7 @@ To make the buttons look nice, we use [Bootstrap's Button classes](https://getbo
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 ```
 
-This step only displays the buttons. But we still have to fill them with life by implementing the specified functions that are called for the`onclick` events, i.e., `connect()`, `disconnect()`, and `clearList()`.
+This step only displays the buttons. But we still have to fill them with life by implementing the specified functions that are called the`onclick` events, i.e., `connect()`, `disconnect()`, and `clearList()`.
 
 #### Providing feedback
 
@@ -118,7 +118,7 @@ The final masterpiece looks similar to this.
 
 ### Implementation
 
-So far, we have only designed the frontend but still needs to implement its logic. For this task, we rely on two libraries
+So far, we have only designed the frontend but still need to implement its logic. For this task, we rely on two libraries
 
 * [mqttws31.js](https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js):  The [Eclipse Paho Javascript client](https://www.eclipse.org/paho/clients/js/#), a MQTT client written in JavaScript.
 * [jquery-3.3.2.min.js](https://code.jquery.com/jquery-3.3.1.min.js): The compressed version of the popular [JQuery JavaScript library](https://jquery.com/).
@@ -140,7 +140,7 @@ The two included libraries are a good start, but we will of course need some log
 
 When the user clicks on _Start,_ we need to connect to the MQTT broker and subscribe to the desired topic. 
 
-First, we get _host_ and _port_ from the form elements and create a MQTT client. We then have to specify what happens, when a message is received. This event is handled by setting an adequate callback that we still have to implement. Finally, we connect the client to the broker by providing username and password from the form elements. We also enable TLS and configure a callback for the `onSuccess` event. 
+First, we get _host_ and _port_ from the form elements and create an MQTT client. We then have to specify what happens, when a message is received. This event is handled by setting an adequate callback that we still have to implement. Finally, we connect the client to the broker by providing username and password from the form elements. We also enable TLS and configure a callback for the `onSuccess` event. 
 
 ```javascript
 function connect() {   
@@ -162,7 +162,7 @@ function connect() {
 
 #### onConnect
 
-When the client has successfully established a connection, the `onSuccess` event is triggerd and our callback `cb_onConnect` is called. The implementation is very simple. We sets the status field and tell the client to subscribe to the desired topic.
+When the client has successfully established a connection, the `onSuccess` event is triggerd and our callback `cb_onConnect` is called. The implementation is very simple. We set the status field and tell the client to subscribe to the desired topic.
 
 ```javascript
 function cb_onConnect() {
@@ -175,12 +175,12 @@ function cb_onConnect() {
 
 After having subscribed to one or more topics, the client will start to receive messages. Each new message triggers an `onMessageArrived` event and thus a call to our callback `cb_onMessageArrived`passing the received message as a function parameter.
 
-Message have two important attributes:
+Messages have two important attributes:
 
 * `destinationName` The topic to which the message was sent.
 * `payloadString` The payload of the message.
 
-The following function parses both topic and message and highlights specific parts. At the end, the highlighted and reformatted message is prepended to the list of messages.
+The following function parses both topic and message, and highlights specific parts. At the end, the highlighted and reformatted message is prepended to the list of messages.
 
 ```javascript
 function cb_onMessageArrived(message) {
