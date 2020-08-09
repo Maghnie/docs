@@ -38,7 +38,7 @@ A sensor, actor, or other physical or virtual data source. A datapoint belongs t
 
 ### Datapoint key
 
-Datapointkeys define how [datapoints](glossary.md#datapoint) are named and allow providing alternate names such as translations to different languages or names that adhere to standardized formats such as BUDO. The standard datapoint key is called _aedifion-fully-qualified-datapointname_, comprising the device name, datapoint name, datapoint type and instance id.
+Datapoint keys define how [datapoints](glossary.md#datapoint) are named and allow providing alternate names such as translations to different languages or names that adhere to standardized formats such as BUDO. The standard datapoint key is called _aedifion-fully-qualified-datapointname_, comprising the device name, datapoint name, datapoint type and instance id.
 
 ### Device
 
@@ -46,7 +46,7 @@ A physical building automation device, e.g., a programmable logic controller, co
 
 ### Instanced component
 
-An instanced component is a [component data model](glossary.md#component-data-model) instanced for a specific [project](glossary.md#project). An instanced component is associated to exactly one project, the [pins ](glossary.md#pin)of the component data model it is instanced from may be mapped to the [datapoints ](glossary.md#datapoint)of the project. Meta data [tags ](glossary.md#tag)may be added to an instanced component to further individualize it.
+An instanced component is a [component data model](glossary.md#component-data-model) instanced for a specific [project](glossary.md#project) and it is associated to exactly one project. The [pins ](glossary.md#pin)of the component data model it is instanced from may be mapped to the [datapoints ](glossary.md#datapoint)of the project. Meta data [tags ](glossary.md#tag)may be added to an instanced component to further individualize it.
 
 ### Mapping
 
@@ -74,11 +74,11 @@ A logical entity that corresponds to an administrative subdomain in a company, b
 
 ### Role
 
-A role is a bundle of permissions that define and limit resource access [company](glossary.md#company)- or [project](glossary.md#project)-wide. A special "admin" role with all permissions is created automatically for each company and project. 
+A role is a bundle of permissions that define and limit resource-access [company](glossary.md#company)- or [project](glossary.md#project)-wide. A special "admin" role with all permissions is created automatically for each company and project. 
 
 ### **Tag**
 
-A short piece of information that can be attached to an [ instanced component ](glossary.md#instanced-component)or [datapoint](glossary.md#datapoint). A tag has a key and a value, e.g., `unit=degreeCelsius` or `writable=False`.
+A short piece of information that can be attached to an [instanced component](glossary.md#instanced-component) or [datapoint](glossary.md#datapoint). A tag has a key and a value, e.g., `unit=degreeCelsius` or `writable=False`.
 
 ### **Time series**
 
