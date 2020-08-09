@@ -122,7 +122,7 @@ You can only flag datapoints as favorites that exist in your project. If you pas
 
 ### Querying favorites
 
-What use are favorites when you cannot quickly access them? That's what the GET /v2/project/{project\_id}/datapoints/favorites endpoint is there for. It takes the _project\_id_ as single parameter and returns all of the logged-in user's favorites.
+What use are favorites when you cannot quickly access them? That's what the `GET /v2/project/{project\_id}/datapoints/favorites` endpoint is there for. It takes the _project\_id_ as the single parameter and returns all of the logged-in user's favorites.
 
 | Parameter | Datatype | Type | Required | Description | Example |
 | :--- | :---: | :---: | :---: | :--- | :--- |
@@ -170,7 +170,7 @@ The response is a list of all your favorite datapoints in the specified project.
 
 ### Deleting a favorite
 
-Maybe that _datapoint\_within\_your\_office_ is not that important, after all. Removing it from the list of your favorites is a simple matter of calling `DELETE /v2/datapoint/favorite` with the usual parameters:
+Maybe that _datapoint\_within\_your\_office_ is not that important after all. Removing it from the list of your favorites is a simple matter of calling `DELETE /v2/datapoint/favorite` with the usual parameters:
 
 <table>
   <thead>
@@ -1085,7 +1085,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Datapoint_ tag ,then the `POST /v2/datapoint/tag` endpoint \(green\).
-4. Fill out all the neccessary parameters.
+4. Fill out all the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
@@ -1154,7 +1154,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Project_ tag ,then the `GET /v2/datapoint/tag` endpoint \(blue\).
-4. Fill out all the neccessary parameters.
+4. Fill out all the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
@@ -1179,7 +1179,7 @@ Since we provided the optional key parameter only the tags with the key "locatio
 
 ### Modifying tags
 
-With the Aedifion API you can either modify the **tag** directly \(i.e. the _key_ or the _value_\) or the **tag assignment** \(i.e. the confirmed status\). The first method affects **all assignments** the user has made. This method is conceived e.g. for fixing typos in the tags. The second method is to **verify** the tag assignment \(set the confirmed status\).
+With the aedifion API you can either modify the **tag** directly \(i.e. the _key_ or the _value_\) or the **tag assignment** \(i.e. the confirmed status\). The first method affects **all assignments** the user has made. This method is conceived e.g. for fixing typos in the tags. The second method is to **verify** the tag assignment \(set the confirmed status\).
 
 For example if your company decides to rename the offices \(e.g. from A113 to B113\), you do not need to recreate all the tags; you can just modify them. To modify the _key_ and/or the _value_ of the tag use the  API endpoint `PUT /v2/project/{project_id}/tag/{tag_id}`. It requires the following parameters:
 
@@ -1233,7 +1233,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Project_ tag ,then the `PUT /v2/project/{project_id}/tag/{tag_id}` endpoint \(yellow\).
-4. Copy-paste the above JSON into the value of the _tag_ parameter and fill out the the neccessary parameters.
+4. Copy-paste the above JSON into the value of the _tag_ parameter and fill out the the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
@@ -1384,7 +1384,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Datapoint_ tag ,then the `PUT /v2/project/{project_id}/tag/{tag_id}` endpoint \(yellow\).
-4. Copy-paste the above JSON into the value of the _tag_ parameter and fill out the the neccessary parameters.
+4. Copy-paste the above JSON into the value of the _tag_ parameter and fill out the the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
@@ -1425,7 +1425,7 @@ The relevant API endpoint is `GET /v2/project/{project_id}/datapoints/byTag` and
 | **source** | string | query | no | The source of the tag assignment we filter for. | user |
 | **confirmed** | string | query | no | The confirmed status of the assignment. Either "true" \(correct assignment\), "false" \(incorrect assignment\) or "unconfirmed" \(unknown assignment\). | "true" |
 
-Let us now query all datapoints we assigned a location tag to which are confirmed. Since we just confirmed the assignment before, we should get returned the just assigned tag to the datapoint.
+Let us now query for confirmation status all datapoints we assigned a location tag. Since we just confirmed the assignment before, we should get returned the just assigned tag to the datapoint.
 
 {% tabs %}
 {% tab title="Python" %}
@@ -1458,7 +1458,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Datapoint_ tag ,then the `GET /v2/project/{project_id}/datapoints/byTag` endpoint \(blue\).
-4. Fill out the the neccessary parameters.
+4. Fill out the the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
@@ -1486,7 +1486,7 @@ We get the following list as result:
 
 ### Deleting tag assignments
 
-The Aedifion API allows you to delete tag assignments \(remove tag from a datapoint\) or to delete a tag entirely. You cannot delete a tag assignment which is **protected**. Also you cannot delete a tag completely from a project which has protected assignments or is assigned by another source as _user_ \(e.g. BAC_net_\).
+The aedifion API allows you to delete tag assignments \(remove tag from a datapoint\) or to delete a tag entirely. You cannot delete a tag assignment which is **protected**. Also you cannot delete a tag completely from a project which has protected assignments or is assigned by another source as _user_ \(e.g. BAC_net_\).
 
 {% hint style="danger" %}
 Deleting a tag or a tag assignment cannot be undone.
@@ -1574,7 +1574,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Datapoint_ tag ,then the `DELETE /v2/datapoint/tag/{tag_id}` endpoint \(red\).
-4. Fill out the the neccessary parameters.
+4. Fill out the the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
@@ -1645,7 +1645,7 @@ print(r.status_code, r.json())
 1. Point your browser to [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/).
 2. Click _Authorize_ on the upper right and provide your login.
 3. From the main tags \(Meta, Company, ...\) select the _Project_ tag ,then the `DELETE /v2/project/{project_id}/tag/{tag_id}` endpoint \(red\).
-4. Fill out the the neccessary parameters.
+4. Fill out the the necessary parameters.
 5. Click "_Try it out!_".
 6. Inspect the response body and code.
 {% endtab %}
