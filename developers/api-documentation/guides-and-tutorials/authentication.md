@@ -35,8 +35,8 @@ Finally, the authenticated user identity is used to _personalize the user experi
 
 Users can authenticate by one of two methods:
 
-* \*\*\*\*[**HTTP Basic Auth:**](authentication.md#basic-auth) As defined in \[[RFC7617](https://tools.ietf.org/html/rfc7617)\], the user provides his/her username and password with each request. Basic Auth is one of the first and simplest authentication methods and is still widely used on the Web, today. However, it lacks support for important features such as single-sign-on and two-factor authentication. 
-* [**OIDC:**](authentication.md#open-id-connect) ****Open ID Connect \(OIDC\) is an authentication layer on top of the OAuth 2.0 authorization framework. [OIDC](https://openid.net/connect/) and [OAuth 2.0](https://tools.ietf.org/html/rfc6749) are both open standards. In OIDC, a user that wishes to use an service such as the aedifion HTTP API, authenticates not against this service but against a central Identity Provider \(IP\). The IP authenticates the user and issues an access token comprising identity and, possibly, authorization claims which the user in a subsequent step presents to the target service to access it. While the IP presents one step of indirection, it facilitates for single-sign-on across different services and provides a central log-on that can be further secured through two-factor authentication.
+* \*\*\*\*[**HTTP Basic Auth:**](authentication.md#basic-auth) As defined in \[[RFC7617](https://tools.ietf.org/html/rfc7617)\], the user provides his/her username and password with each request. Basic Auth is one of the first and simplest authentication methods and is still widely used on the Web today. However, it lacks support for important features such as single-sign-on and two-factor authentication. 
+* [**OIDC:**](authentication.md#open-id-connect) ****Open ID Connect \(OIDC\) is an authentication layer on top of the OAuth 2.0 authorization framework. [OIDC](https://openid.net/connect/) and [OAuth 2.0](https://tools.ietf.org/html/rfc6749) are both open standards. In OIDC, a user that wishes to use a service such as the aedifion HTTP API, authenticates not against this service but against a central Identity Provider \(IP\). The IP authenticates the user and issues an access token comprising identity and, possibly, authorization claims which the user in a subsequent step presents to the target service to access it. While the IP presents one step of indirection, it facilitates for single-sign-on across different services and provides a central log-on that can be further secured through two-factor authentication.
 
 {% hint style="warning" %}
 The aedifion HTTP API supports Basic Auth for legacy reasons until further notice. HTTP Basic Auth may be deprecated in future. New applications, scripts, and programs should thus be built using OIDC-based authentication.
@@ -51,7 +51,7 @@ authorization: Basic aHppZWdlbGRvcmZAYWVkaWZpb24uY29tOm5ld3Bhc3N3b3Jk
 ```
 
 {% hint style="danger" %}
-Note that base64 _not an encryption._ You can copy-paste the encoded part above into any base64 decoder and will see the username and password in clear. Because credentials are essentially sent in clear, HTTP Basic Auth must always be used over an encrypted channel, i.e., HTTPS. Otherwise, the credentials could be easily read by any man-in-the-middle.
+Note that base64 is _not an encryption._ You can copy-paste the encoded part above into any base64 decoder and will see the username and password in clear. Because credentials are essentially sent in clear, HTTP Basic Auth must always be used over an encrypted channel, i.e., HTTPS. Otherwise, the credentials could be easily read by any man-in-the-middle.
 {% endhint %}
 
 Of course, you do not have to base64-encode those credentials and add that header yourself. Most tools and programming languages will have built-in functionalities or third-party libraries that do this job for you.  
@@ -108,7 +108,7 @@ r = requests.get("https://api.aedifion.io/v2/user",
 
 ## Open ID Connect
 
-Open ID Connect \(and OAuth\) are rather involved protocols with many application scenarios. An in depth treatment of these protocols is out of scope, here, and we only cover the absolute basics required to understand the OIDC-based authentication process.
+Open ID Connect \(and OAuth\) are rather involved protocols with many application scenarios. An in depth treatment of these protocols is out of scope here, and we only cover the absolute basics required to understand the OIDC-based authentication process.
 
 {% hint style="warning" %}
 Work in Progress
@@ -116,7 +116,7 @@ Work in Progress
 
 In the following, we provide examples for OIDC-based authentication to the aedifion HTTP API using a few common tools and languages. To keep it simple, we will in all examples only make a single call to the `GET /v2/user` endpoint, which provides details for the authenticated user. 
 
-Please note that OAuth 2.0 know four grant types \(not counting several extension grants\) which OIDC complements with three authentication flows The examples presented in the following are thus only _one way to do it_ and there are certainly others \(which might better suit other scenarios\).
+Please note that OAuth 2.0 knows four grant types \(not counting several extension grants\) which OIDC complements with three authentication flows. The examples presented in the following are thus only _one way to do it_ and there are certainly others \(which might better suit other scenarios\).
 
 {% tabs %}
 {% tab title="Curl" %}
@@ -162,7 +162,7 @@ Now click "_Get New Access Token"_  and fill in the following settings \(the ful
 
 ![Settings for OAuth 2.0 - based authentication.](../../../.gitbook/assets/image%20%2817%29.png)
 
-Click "_Request Token_". This will kick-off an OAuth 2.0 "Implicit Grant" which redirects you to login form of the aedifion Identity Provider within a browser-like window directly within Postman. Enter your credentials and login. You will be redirected back to Postman.
+Click "_Request Token_". This will kick-off an OAuth 2.0 "Implicit Grant" which redirects you to the login form of the aedifion Identity Provider within a browser-like window directly within Postman. Enter your credentials and login. You will be redirected back to Postman.
 
 Having successfully logged-in, the obtained token will be displayed on the right, and a list of all \(previously\) obtained tokens on the left. Just close this window for now.
 
@@ -174,11 +174,11 @@ For more information, see [https://learning.getpostman.com/docs/postman/sending-
 {% tab title="Swagger UI" %}
 The [Swagger UI](https://api.aedifion.io/ui/) is an interactive UI for the aedifion HTTP API auto-generated from the API's [OpenAPI specification](https://api.aedifion.io/swagger.json). 
 
-1. Open [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/) in a browser
+1. Open [https://api.aedifion.io/ui/](https://api.aedifion.io/ui/) in a browser.
 2. Click "Authorize" on the top right. This will kick off OIDC's "Implicit flow".
 3. In the pop-up, ignore the username and password fields and just click the top "Authorize" button. You will be redirected to aedifion's Identity Provider and prompted to log in.
 4. On the log in form, fill in your email/username and password. Click "Log in". You will be redirected back to the application \(i.e., the Swagger UI\).
-5. Drop down the "User" section and choose the GET /v2/user endpoint. Click "Try it out!"
+5. Drop down the "User" section and choose the GET /v2/user endpoint. Click "Try it out!".
 
 ![Click the top &quot;Authorize&quot; button for OIDC-based authentication. Ignore username and password.](../../../.gitbook/assets/image%20%2820%29.png)
 
@@ -218,7 +218,7 @@ As a better alternative, we now use OIDC's full fledged "Authentication Code Flo
 
 In the "Authentication Code Flow", unlike the "Implicit Flow", the user receives only an _authorization code_ after login that he/she has to exchange for an _access token_ \(and a _refresh token_ and, optionally, an _id token_\) in a subsequent step.
 
-Since the "Authentication Code Flow" requires a lot more legwork than suitable for a short concise example, we provide lot of the boiler plate code in the [oidc-client.py script](https://gitlab.com/aedifion/code-samples/blob/master/oidc/python3/oidc-client.py) in [aedifion's public repository of code samples](https://gitlab.com/aedifion/code-samples).
+Since the "Authentication Code Flow" requires a lot more legwork than suitable for a short concise example, we provide much of the boiler plate code in the [oidc-client.py script](https://gitlab.com/aedifion/code-samples/blob/master/oidc/python3/oidc-client.py) in [aedifion's public repository of code samples](https://gitlab.com/aedifion/code-samples).
 
 Go ahead and download that script and install the required modules. Then run the example by 
 
@@ -228,7 +228,7 @@ python3 oidc-client.py -c tutorial-python
 
 The script will open a browser and prompt you to log in to aedifion's Identity Provider. After login, you'll receive an authorization code that you need to input to the python script. The script will then exchange it for an identity, refresh and access token and issue an actual API request.
 
-Note that the obtained tokens are stored in your home directory under folder `.aedifion/` after first login. Any subsequent run of `oidc-client.py` will find a previously obtained token, so that you do not have to log in again.
+Note that the obtained tokens are stored in your home directory under folder `.aedifion/` after the first login. Any subsequent run of `oidc-client.py` will find a previously obtained token, so that you do not have to log in again.
 
 {% hint style="info" %}
 The `oidc-client.py` script supports many more features than discussed above, e.g., it supports Resource Owner Grants and Client Credentials Grants, and facilitates the automatic renewal of expired tokens. 
