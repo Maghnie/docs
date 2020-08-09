@@ -8,9 +8,9 @@ description: >-
 
 ## Overview
 
-In this tutorial, we cover user and project management as well as the associated role-based access control \(RBAC\) system. You will learn how to add, modify, and delete users and projects as well as how to add new roles to projects, manage permissions of a role, and assign roles to users -- all easily automatable through the [HTTP API](../).
+In this tutorial, we cover user and project management as well as the associated role-based access control \(RBAC\) system. You will learn how to add, modify, and delete users and projects as well as how to add new roles to projects, manage permissions of a role, and assign roles to users -- all easily automated through the [HTTP API](../).
 
-If you haven't already, please skim through the definition of [special terminology](../../../glossary.md). We recapitulate the most important concepts and their relation to each other with a focus on their administration in the following:
+If you haven't already, please skim through the definitions of [special terminology](../../../glossary.md). We recapitulate the most important concepts and their relation to each other with a focus on their administration in the following:
 
 * _Companies_ are administration-wise the topmost entity on the aedifion.io platform_._ Companies are created and managed by aedifion. They can neither be created nor modified or deleted by users. Companies are created by aedifion as strictly separated administration domains that never share any resources.
 * A company has arbitrary many _users_ and each user belongs to exactly one company. Users can \(with sufficient permissions\) create and add further users to their company, but can only modify or delete their own account and never that of another user.
@@ -117,7 +117,7 @@ The response is a JSON-parsable object that contains the company's met data as w
 
 ### Modifying companies
 
-We currently do not save any meta-data about companies except for a name and a short description. These attributes are deliberately read-only and can only be changed by aedifion. This might change in future. Unit then, please [contact](../../../contact.md) us if you require a change of name or description.
+We currently do not save any meta-data about companies except for a name and a short description. These attributes are deliberately read-only and can only be changed by aedifion. This might change in future. Until then, please [contact](../../../contact.md) us if you require a change of name or description.
 
 ### Deleting companies
 
@@ -187,7 +187,7 @@ curl https://api.aedifion.io/v2/project
 {% endtab %}
 {% endtabs %}
 
-The answer is a JSON-parsable object containing similar to the following:
+The answer is a JSON-parsable object containing output similar to the following:
 
 ```javascript
 {
@@ -417,7 +417,7 @@ The flow for managing users is mostly the same as for [managing projects](admini
 
 ### Adding users
 
-New users are created by user with company-roles through the `POST /v2/company/user` API endpoint. As usual, you need to supply the details of the new user in [JSON-format](https://www.json.org/) in the body of this request. The JSON should contain the following name/value-pairs:
+New users are created by any user with company-roles through the `POST /v2/company/user` API endpoint. As usual, you need to supply the details of the new user in [JSON-format](https://www.json.org/) in the body of this request. The JSON should contain the following name/value-pairs:
 
 <table>
   <thead>
@@ -625,7 +625,7 @@ curl https://api.aedifion.io/v2/user
 {% hint style="warning" %}
 **Windows cmd:**
 
-Remenber the different handling of quotation marks in the cmd from [modifying projects](administration.md#modifying-projects).
+Remember the different handling of quotation marks in the cmd from [modifying projects](administration.md#modifying-projects).
 {% endhint %}
 {% endtab %}
 
@@ -655,7 +655,7 @@ As usual, we receive a confirmation and the touched resource in the response:
 }
 ```
 
-In order to view the stored personal details of a user, query them via `GET /v2/user`. Of course, a user is only able to see its own details. How to use this endpoint is already explained in [get company](administration.md#get-company). The personal details are returned in the `"user"` filed.
+In order to view the stored personal details of a user, query them via `GET /v2/user`. Of course, a user is only able to see their own details. How to use this endpoint is already explained in [get company](administration.md#get-company). The personal details are returned in the `"user"` filed.
 
 {% hint style="info" %}
 You may have noticed that this call did not require the user's id, unlike the `PUT /v2/project/{project_id}` endpoint which required the project's id as a path parameter. The reason is that users can only modify themselves. Which user to modify is thus already implied by the identity of the user that logs in.
@@ -663,7 +663,7 @@ You may have noticed that this call did not require the user's id, unlike the `P
 
 ### Deleting users
 
-To delete a user, just call the `DELETE /v2/user` endpoint with the login of the user that should be deleted. Again, this implied that a user can only delete him/herself. The call is thus even simpler than the analog call for [deleting a project](administration.md#deleting-projects).
+To delete a user, just call the `DELETE /v2/user` endpoint with the login of the user that should be deleted. Again, this entails that a user can only delete him/herself. The call is thus even simpler than the analog call for [deleting a project](administration.md#deleting-projects).
 
 {% hint style="danger" %}
 Deleting a user deletes the user together with _all user-specific meta data_, including favorites, plotviews, and so forth. Handle this endpoint with great care.
@@ -685,10 +685,10 @@ We first have to define what we mean by _permission to access a resource:_
 Permissions and TagAuths are bundled in _two types of roles_:
 
 * _Company roles_ define resource access within the whole company, i.e., all resource access permissions through a company role are granted on all of the company's projects and on all datapoints within that project.  E.g., providing permission to endpoint `GET /v2/project/{project_id}` allows retrieving the meta-data of all projects of that company and access to `PUT /v2/datapoint` allows modifying all datapoints in all the company's projects. Hence company roles are low maintenance as they provide broad and automatic access even to new projects and datapoints that are added to the company's portfolio. Company roles are best used as high-level administrative roles and should thus be assigned sparingly and carefully.
-* _Project roles_ define permissions for single projects as they are always associated to a single project, i.e., all permissions granted through a project role are scoped to that project. E.g., granting permission to `GET /v2/project/{project_id}` within a project role on the project _A_ allows retrieving the meta-data of only the project _A_. For all endpoints that operate on datapoints, project roles must define which datapoints are accessible by this role through _TagAuths_. Project roles are thus the means of choice to grant fine granular access to \(meta-\)data in the majority of use cases. They can be assigned more generously and freely than company roles. It should also be noted that a project role cannot grant permission on company-related resources, i.e., on the API endpoints with _Company_ tag such as `PUT /v2/company/role/{role_id}`.
+* _Project roles_ define permissions for single projects as they are always associated to a single project, i.e., all permissions granted through a project role are scoped to that project. E.g., granting permission to `GET /v2/project/{project_id}` within a project role on project _A_ allows retrieving the meta-data of only project _A_. For all endpoints that operate on datapoints, project roles must define which datapoints are accessible by this role through _TagAuths_. Project roles are thus the means of choice to grant fine granular access to \(meta-\)data in the majority of use cases. They can be assigned more generously and freely than company roles. It should also be noted that a project role cannot grant permission on company-related resources, i.e., on the API endpoints with the _Company_ tag such as `PUT /v2/company/role/{role_id}`.
 
 {% hint style="info" %}
-Think that company roles providing a `*` wildcard on the accessed project and datapoint while project roles grant access only on a single project and an explicit subset of datapoints.
+View company roles as providing a `*` wildcard on the accessed project and datapoint while project roles grant access only on a single project and an explicit subset of datapoints.
 {% endhint %}
 
 {% hint style="info" %}
@@ -699,7 +699,7 @@ Putting it all together, a user's _permission set_ is defined as the union over 
 
 Finally, it is important to note that the permission system is a strict _whitelisting_ approach with the following important properties:
 
-* Per default, access to all resources is forbidden except for the user's own meta-data.
+* By default, access to all resources is forbidden except for the user's own meta-data.
 * Access to a resource must be explicitly granted through a role.
 * If a user is granted the permission to access resource _R_ through role _A_ then this access is not revoked by any other assigned role _B_ that does not grant access to _R._
 * A user can only grant resource access permissions to other users/roles that are in his/her own permission set \(to [prevent privilege escalation](administration.md#preventing-escalation-of-privileges)\).
@@ -721,7 +721,7 @@ Imagine the following setup:
 
 Now, what permissions do Alice, Bob, and the guests have?
 
-* Alice has access to all of _NewCo's_ resources, e.g., all projects and datapoints in these projects, __since she is assigned the root _admin_ company role. She does not need any specific project role to edit an individual project's meta data as her company role extends to all projects \(think: company roles provide wildcard `*` on projects and datapoints\).
+* Alice has access to all of _NewCo's_ resources, e.g., all projects and datapoints in these projects, __since she is assigned the root _admin_ company role. She does not need any specific project role to edit an individual project's meta data as her company role extends to all projects \(remember: company roles provide wildcard `*`-access on projects and datapoints\).
 * Bob's company role _NewCo/reader_ allows him only access to endpoints that allow reading project's data and metadata but not to change them \(e.g., granting access only to `GET` methods and not to `POST`, `PUT`, or `DELETE`\). Since Bob is working in the factory, he is also granted permissions to change datapoints from the factory floor, e.g., write a setpoint for the room temperature, through the project role _NewCo/FactoryFloor/writer._ Since this role is project-scope to the _FactoryFloor_ project, it does not allow writing setpoints on project _Headquarters_.
 * Guests only have rights to read resources, e.g., meta-data and datapoints, of the project _Headquarters,_ but cannot access any other project or company resources. 
 {% endhint %}
@@ -825,7 +825,7 @@ requests.post(f"{api_url}/v2/project", auth=auth, json=newproject)
 ...
 ```
 
-Note that one new project role has appeared. This _admin_ role was automatically created when we created the new project and assigned to the creating user.
+Note that one new project role has appeared. This _admin_ role was automatically created when we created the new project and the role was assigned to the creating user.
 
 {% hint style="info" %}
 Automatic creation and assignment of the _admin_ role on new projects ensures that the creating user has access to the project and can grant access to others.
@@ -973,7 +973,7 @@ As usual, the response confirms success and returns the created role.
 
 #### Adding company roles
 
-If we have added many projects, a company-wide maintainer role is probably required that defines access on all projects and automatically extends also to future projects that have not been created, yet. [As explained above](administration.md#conceptual-overview), company roles address this objective.
+If we have added many projects, a company-wide maintainer role is probably required that defines access on all projects and automatically extends also to future projects that have not been created yet. [As explained above](administration.md#conceptual-overview), company roles address this objective.
 
 As an example, we create a _company role_ through the _POST /v2/company/role_ endpoint that allows creation, modification, and deletion of projects. The process is the same as for adding a project role. Note that the definition of company roles does not need the `authed_tags` field since company roles automatically extend to all datapoints and cannot be limited to an individual selection \(that's what project roles are there for\).
 
@@ -1155,7 +1155,7 @@ r = requests.put(f"{api_url}/v2/project/{new}/role/{role_id}",
 
 ### Deleting roles and role assignments
 
-Deleting a role assignment without deleting the role itself is done through the `DELETE /v2/project/{project_id}/role/{role_id}/user/{user_id}` and `DELETE /v2/company/role/{role_id}/user/{user_id}` endpoints for project and company roles, respectively. In contrast, deleting a role including all assignments of that role users is done through the `DELETE /v2/project/{project_id}/role/{role_id}` and `DELETE /v2/company/roles/{role_id}` endpoints
+Deleting a role assignment without deleting the role itself is done through the `DELETE /v2/project/{project_id}/role/{role_id}/user/{user_id}` and `DELETE /v2/company/role/{role_id}/user/{user_id}` endpoints for project and company roles, respectively. In contrast, deleting a role including all assignments of that role is done through the `DELETE /v2/project/{project_id}/role/{role_id}` and `DELETE /v2/company/roles/{role_id}` endpoints
 
 Continuing our running example, we delete the _Project Admin_ company role and the assignment of the _Maintainer_ project role to Jane Doe.
 
