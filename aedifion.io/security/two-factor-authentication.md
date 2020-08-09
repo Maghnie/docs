@@ -6,15 +6,15 @@ description: Secure access to aedifion.io
 
 ## Authentication via Single Sign On
 
-After your company administrator created your personal user account at the aedifion platform, please use the Login via **Single Sign On** **\(SSO\)** or rather **OAuth2.0** to access the aedifion services.
+After your company administrator created your personal user account on the aedifion platform, please use the Login via **Single Sign On** **\(SSO\)** or rather **OAuth2.0** to access the aedifion services.
 
 ### Initial Login
 
-At your initial attempt to access the services, please use the `Forgot Password?`-functionality below the login information:
+On your initial attempt to access the services, please use the `Forgot Password?`-functionality below the login information:
 
 ![](../../.gitbook/assets/image%20%2844%29.png)
 
-You will get forwarded to a page, where you have to provide your mail address. 
+You will be forwarded to a page, where you have to provide your email address. 
 
 ![](../../.gitbook/assets/image%20%2851%29.png)
 
@@ -34,7 +34,7 @@ If you don't know your credentials please use the `Forgot Password?`-functionali
 
 ### Two factor authentication
 
-To increase security many services offer or even require a second factor for authentication \(called 2FA or TFA\), e.g. a mobile phone or a specialized USB key. The reasoning behind it is, that if your computer is compromised due to malware, or that somehow an attacker has acquired your login credentials, he still cannot access the service, because he does not have your second factor.
+To increase security many services offer or even require a second factor for authentication \(called 2FA or TFA\), e.g. a mobile phone or a specialized USB key. The reasoning behind it is that if your computer is compromised due to malware, or that somehow an attacker has acquired your login credentials, he still cannot access the service, because he does not have your second factor.
 
 aedifion's authentication method allows an easy setup of a second factor via a mobile phone. Recommended mobile applications to use are FreeOTP+ or Google Authenticator. This tutorial will show you how to setup two-factor authentication with FreeOTP.
 
@@ -68,3 +68,6 @@ Congratulations, you now have enabled two-factor authentication for your account
 
 ![](../../.gitbook/assets/image%20%2823%29.png)
 
+
+
+_In the next subpages this documentation continues with our products aedifion.analytics and .controls._
