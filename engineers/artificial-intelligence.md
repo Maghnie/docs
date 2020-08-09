@@ -68,7 +68,7 @@ description: >-
 
    6. `/electric/voltage`
 
-      Measurand for the voltage
+      Measurand for the voltage.
 
    7. `/energy/chill energy`
 
@@ -88,7 +88,7 @@ description: >-
 
    11. `/gas concentration/VOC`
 
-       Measurand for the concentration of Volatile Organic compounds.
+       Measurand for the concentration of Volatile Organic Compounds.
 
    12. `/global radiation`
 
@@ -112,7 +112,7 @@ description: >-
 
    17. `/message/operating`
 
-       The datapoint displays messages about a devices' operation.
+       The datapoint displays messages about a device's operation.
 
    18. `/message/presence`
 
@@ -136,7 +136,7 @@ description: >-
 
    23. `/position/damper position`
 
-       Position of air duct dampers
+       Position of air duct dampers.
 
    24. `/position/misc`
 
@@ -180,7 +180,7 @@ description: >-
 
    34. `/temperature/difference`
 
-       This datapoint represents a temperature difference between to locations.
+       This datapoint represents a temperature difference between two locations.
 
    35. `/temperature/gaseous/exhaust`
 
@@ -355,7 +355,7 @@ description: >-
 
    24. `/scalar/radiant`
 
-       The datapoints observations are angle measured in radians.
+       The datapoints observations are angles measured in radians.
 
    25. `/speed/kmPerHour`
 
@@ -363,7 +363,7 @@ description: >-
 
    26. `/speed/meterPerSecond`
 
-       The datapoints observations are measured in meters per seconds.
+       The datapoints observations are measured in meters per second.
 
    27. `/temperature/Celsius`
 
