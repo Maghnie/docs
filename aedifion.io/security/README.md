@@ -6,9 +6,9 @@ description: Security and data protection on aedifion.io
 
 ## Overview
 
-aedifion.io provides cloud-based data acquisition, analytics, and control. Inevitably, these services require a connection between your, the customer's, building automation network and the aedifion.io platform as well as to store and process data on it.
+aedifion.io provides cloud-based data acquisition, analytics, and control. Inevitably, these services require a connection between your building automation network (i.e. the customer's) and the aedifion.io platform, as well as storing and processing data on it.
 
-Some of our customers have initially been concerned about connecting their building network to the Internet, if only to our platform. Typical reactions are:
+Some of our customers have initially been concerned about connecting their building network to the Internet, even if only to our platform. Typical concerns are:
 
 > _"The building automation network is not connected to the Internet for security reasons."_  
 >   
@@ -22,7 +22,7 @@ Some of our customers have initially been concerned about connecting their build
 >   
 >                                          - Energy service company
 
-Many of our existing customers concerns were settled once they had understood exactly which connections are made, how they are established, and for what reasons. In this article, we thus explain and review the precautions and security measures aedifion takes to protect your building network and data.
+Many of our existing customers' apprehensions were settled once they had understood exactly which connections are made, how they are established, and for what reasons. In this article, we thus explain and review the precautions and security measures aedifion takes to protect your building network and data.
 
 ## The edge device
 
@@ -43,13 +43,13 @@ On request, the edge device's software can run on your own hardware and operatin
 
 ### Connecting to the building network
 
-The edge device has two built-in network adapters. The first network adapter must be directly connected to the local building automation network. This is important to support auto-discovery of devices and their datapoints as many building communication protocols such as BACnet use broadcasts in the local network for auto discovery and these broadcasts are per standard not forward outside of the local network. The edge device will only communicate on the port\(s\) corresponding to the targeted building automation network protocol, e.g., port 47808 for BACnet. 
+The edge device has two built-in network adapters. The first network adapter must be directly connected to the local building automation network. This is important to support auto-discovery of devices and their datapoints as many building communication protocols such as BACnet use broadcasts in the local network for auto-discovery and these broadcasts are per standard not forwarded outside of the local network. The edge device will only communicate on the port\(s\) corresponding to the targeted building automation network protocol, e.g., port 47808 for BACnet. 
 
 {% hint style="info" %}
 The installation and connection of the edge device is done by the customer's local technician. In particular, aedifion will never require physical access to your networks.
 {% endhint %}
 
-If certain data points or entire areas of the building must not to be read out, this can either be technically prevented in advance \(e.g. by network masks or VLANs\) or handled flexibly within the settings of the edge device. Together with you, we select data points which should be written or stored, and which should not be, since they can be classified as critical or privacy sensitive.
+If certain data points or entire areas of the building must not be read out, this can either be technically prevented in advance \(e.g. by network masks or VLANs\) or handled flexibly within the settings of the edge device. Together with you, we select data points which should be written or stored, and which should not be, since they can be classified as critical or privacy-sensitive.
 
 ### Connecting to aedifion.io
 
@@ -58,7 +58,7 @@ The second network adapter of the edge device must be connected to a network wit
 In most deployment scenarios, local networks with Internet access are placed behind a firewall that limits outgoing connections. In this firewall, the following ports need to be opened:
 
 * **22/TCP Secure Shell \(SSH\)**  Used only on-demand to establish a secure connection from the edge device to one of two dedicated servers for remote administration, e.g., to carry out software updates without manual interaction on location. SSH is the de-facto standard protocol for remote administration in cloud environments and used in millions of IT systems world wide.
-* **123/TCP - Network Time Protocol \(NTP\)**  NTP is a standard protocol for system time synchronization and establishes an outgoing connection to a pool of time servers. On request, the edge device can use customer-provided time servers, e.g., on the local network, for time synchronization. In this case, port 123/TCP may remain closed in the customer's firewall. Per default, the aedifion edge device uses Ubuntu's standard time servers.
+* **123/TCP - Network Time Protocol \(NTP\)**  NTP is a standard protocol for system time synchronization and establishes an outgoing connection to a pool of time servers. On request, the edge device can use customer-provided time servers, e.g., on the local network, for time synchronization. In this case, port 123/TCP may remain closed in the customer's firewall. By default, the aedifion edge device uses Ubuntu's standard time servers.
 * **443/TCP Hypertext Transfer Protocol Secure \(HTTPS\)** 
   * The edge device sends periodic heartbeats to two dedicated servers. Based on this feedback, aedifion monitors the accessibility, status, and functionality of its fleet of edge devices. All communication is carried over HTTPS \(HTTP over TLS\) which is the standard for secure communication on the Internet, e.g., used to secure online banking, mail accounts, and so forth. It is well understood by firewalls, intrusion detection, and deep packet inspection systems.
   * The edge device contacts the Ubuntu package repository to check for security updates every night. Available updates are automatically installed. All communication with the Ubuntu package repository is carried securely over HTTPS.
@@ -68,7 +68,7 @@ In most deployment scenarios, local networks with Internet access are placed beh
 For deployments with critical security requirements, e.g., hospitals or banks, the listed requirements can be reduced down to opening only port 443/TCP for HTTPS traffic and additional security measures such as VPN tunnels can be employed. However, using only the Port 443/TCP is inevitably leading to limitations in platform functionality, such as live data integration.
 {% endhint %}
 
-Communication on the above listed ports only has to be opened towards a fixed set of aedifion's servers, i.e., all other than the following destinations can be blocked by the firewall.
+Communication through the listed ports above has to be opened only for a fixed set of aedifion's servers, i.e., all other destinations besides the following can be blocked by the firewall.
 
 <table>
   <thead>
@@ -182,11 +182,11 @@ Access can be controlled down to the granularity of allowing read or write acces
 
 We are convinced that digitization, and, in particular, the use of cloud and IoT technology, are key to enable and implement resource-conserving, energy-efficient, and user-expanding solutions. In this process, security and data protection are not _nice-to-have,_ but a non-negotiable requirement that must be addressed and built into the design of IT systems right from the start.
 
-That is why aedifion commits to permanently guarantee highest security and data protection standards.  If at any time there is any uncertainty about the function of our services, the guarantee of security and data protection, you are welcome to [contact](../../contact.md) us with your questions at any time. 
+That is why aedifion commits to permanently guarantee the highest security and data protection standards.  If at any point there is any uncertainty about the function of our services, the guarantee of security and data protection, you are welcome to [contact](../../contact.md) us with your questions at any time. 
 
-And, we are willing to walk the talk: aedifion is currently in the process of obtaining TÜV certification for the aedifion.io platform.
+Moreover, we walk the talk: aedifion is currently in the process of obtaining TÜV certification for the aedifion.io platform.
 
 
 
-_This documentation continues with a our products aedifion.analytics and .controls._
+
 
