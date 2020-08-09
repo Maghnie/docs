@@ -25,7 +25,7 @@ This list provides the meteorological conditions which can be integrated by defa
       <td style="text-align:left">Apparent (&quot;feels like&quot;) temperature</td>
       <td style="text-align:left">apparentTemperature</td>
       <td style="text-align:left">&#xB0;C</td>
-      <td style="text-align:left">Human felt temperature, determined by air temperature, wind speed, and
+      <td style="text-align:left">Human-felt temperature, determined by air temperature, wind speed, and
         humidity.</td>
     </tr>
     <tr>
@@ -81,7 +81,7 @@ This list provides the meteorological conditions which can be integrated by defa
       <td style="text-align:left">UV index</td>
       <td style="text-align:left">uvIndex</td>
       <td style="text-align:left">-</td>
-      <td style="text-align:left">Defined by WMO, WTO, and ICNIRP commision.</td>
+      <td style="text-align:left">Defined by WMO, WTO, and ICNIRP commission.</td>
     </tr>
     <tr>
       <td style="text-align:left">Average visibility</td>
@@ -123,13 +123,13 @@ We combine every prediction horizon with the meteorological state monitored to c
 
 ## Datapoint and observation convention
 
-Like any other datapoint on the aedifion.io platform the weather datapoints are identifiable by an alphanumeric identifier which is unique for each project. The timeseries data for particular weather datapoints is stored as observations with a tuple of _value_ and _timestamp_.
+Like any other datapoint on the aedifion.io platform, the weather datapoints are identifiable by an alphanumeric identifier which is unique for each project. The timeseries data for particular weather datapoints is stored as observations with a tuple of _value_ and _timestamp_.
 
  The naming convention for weather datapoints is: 
 
-_aedifion\_weather-&lt;name of meteorological condition&gt;\_&lt;preiction horizon&gt;_
+_aedifion\_weather-&lt;name of meteorological condition&gt;\_&lt;prediction horizon&gt;_
 
-How we handle predictions: Every predication exists of a predicted value and the timestamp in the future the predication is made for. This timestamp is equal to the prediction horizon. We hold on to this _prediction value_ and _prediction horizon_ combination to make predictions accessible on aedifion.io. It’s easier to explain in an example:
+How we handle predictions: Every prediction consists of a predicted value and the timestamp in the future the prediction is made for. This timestamp is equal to the prediction horizon. We hold on to this _prediction value_ and _prediction horizon_ combination to make predictions accessible on aedifion.io. It’s easier to explain in an example:
 
 {% hint style="info" %}
 Imagine the following setup:
