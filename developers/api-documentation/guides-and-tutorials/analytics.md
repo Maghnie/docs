@@ -18,13 +18,13 @@ To execute the examples provided in this tutorial, the following is needed:
 
 ### Basic concepts
 
-We briefly revise the basic terminology used in this tutorial. Make sure to check our [Glossary](../../../glossary.md) when something seems strange to you.
+We briefly revise the basic terminology used in this tutorial. Make sure to check our [Glossary](../../../glossary.md) when something seems unclear to you.
 
 * **Abstract components:** aedifion provides a set of curated components that abstractly model the \(expected\) functioning of various physical or virtual technical building equipment such as boilers, heat pumps, control loops, rooms, etc. The API refers to these abstract components simply as _component_ \(see Component-tagged API resources\).
 * **Pins:** Each component has a set of pins that are placeholders for a real component's datapoints. E.g., the heat pump component has pins for its supply and return temperature.
 * **Mapped components:** The process of attaching real datapoints collected from a real building, factory, district, etc. to a component is referred to as _mapping_. Mapping makes from an abstract component a component instance which is bound to the project that holds the mapped datapoint. On the API, we refer to a mapped component as a _componentInProject_ \(see Project-tagged API resources\)_._
 * **Analysis functions:** aedifion provides a suite of algorithms to analyze building performance. The API calls these _analysis functions_. Each analysis function is applicable to one or more components. E.g., an analysis of the temperature spread might apply only to the _heat pump_ component, while an analysis of duty cycles might apply to any physical, active component.
-* **Analysis instance:** To run an analysis on real data, a configuration of which analysis functions are applied to which mapped component is required first. By this configuration, an analysis function is instantiated \(similar to a component that is mapped\) and becomes and _analysis instance._ The configured instance can subsequently be executed on arbitrary time ranges, e.g., days, weeks, months, or whole years. 
+* **Analysis instance:** To run an analysis on real data, a configuration of which analysis functions are applied to which mapped component is required first. By this configuration, an analysis function is instantiated \(similar to a component that is mapped\) and becomes an _analysis instance._ The configured instance can subsequently be executed on arbitrary time ranges, e.g., days, weeks, months, or whole years. 
 * **Analysis result:** Each execution of an instance on a time range provides a single result object that can be queried using its unique reference.
 
 ## Abstract components
@@ -50,7 +50,7 @@ curl -X GET
 {% endtab %}
 {% endtabs %}
 
-The response is a JSON-formatted list of the available components. Each component as a unique numeric id, an english and german name, and an optional free-text description. 
+The response is a JSON-formatted list of the available components. Each component is represented by a unique numeric id, an english and german name, and an optional free-text description. 
 
 ```javascript
 [
@@ -129,7 +129,7 @@ curl -X GET
 {% endtab %}
 {% endtabs %}
 
-The _thermal control loop_ component has thirteen pin placeholders. Note that not all [analysis functions](analytics.md#analysis-functions) require all pins to be filled and some group of pins may make another group of pins redundant.
+The _thermal control loop_ component has thirteen pin placeholders. Note that not all [analysis functions](analytics.md#analysis-functions) require all pins to be filled and one group of pins may make another group of pins redundant.
 
 ```javascript
 [
@@ -333,7 +333,7 @@ In addition to the pins, the component defines twelve placeholders for additiona
 
 ## Mapped components
 
-Filling the pin placeholders of an abstract component with datapoints from an actual project creates a _mapped component_ from an abstract one. While the initial mapping process is usually carried out by aedifion, the mapped components can be viewed, modified, and deleted ones added through the `GET/PUT/DELETE /v2/project/{project_id}/componentInProject/{componentinproject_id}` endpoints. 
+Filling the pin placeholders of an abstract component with datapoints from an actual project creates a _mapped component_ from an abstract one. While the initial mapping process is usually carried out by aedifion, the mapped components can be viewed, modified, and deleted once added through the `GET/PUT/DELETE /v2/project/{project_id}/componentInProject/{componentinproject_id}` endpoints. 
 
 {% hint style="info" %}
 You may even create your own mapped components using the following endpoints
@@ -437,7 +437,7 @@ Using id = 179 of the mapped _weather station_ component, we can query the detai
 
 ## Analysis functions
 
-We have explored the available components and seen how they filled with life by mapping them. Mapped components are useful for a lot of use cases beyond analytics, e.g., creating pre-defined monitoring dashboards. Here, however, we focus on how we can analyze performance of these components. 
+We have explored the available components and seen how they came to life by mapping them. Mapped components are useful for a lot of use cases beyond analytics, e.g., creating pre-defined monitoring dashboards. Here, however, we focus on how we can analyze the performance of these components. 
 
 We detail [all available analysis functions in the engineering part of this docs](../../../engineers/analytics.md) and just list the most basic information about them using the API endpoint `GET /v2/analytics/functions`. This endpoints requires a single query parameter `component` which should be the english name of the component for which you want to list available analyses. In the next example, we query analyses for the _thermal control loop_ component with id = 182. 
 
@@ -500,7 +500,7 @@ The answer tells us that there is a total of six analysis functions ready to be 
 
 In order to apply an analysis function to a mapped component, we need to create an _analysis instance_ using the `POST /v2/analytics/instance` endpoint. For the sake of brevity, we omit a full example here and proceed with examining an existing analysis instance with id = 318 for the above queried _thermal control loop_ component using the `GET /v2/analytics/instance/{instance_id}` endpoint. This endpoint requires the `project_id` as query parameter and the `instance_id` as path parameter. 
 
-Note that you can also use the `GET /v2/analytics/instances`endpoint to query a list of _all_ analysis instance within a project.
+Note that you can also use the `GET /v2/analytics/instances`endpoint to query a list of _all_ analysis instances within a project.
 
 {% tabs %}
 {% tab title="Python" %}
@@ -544,7 +544,7 @@ There are two ways of listing analysis results, [per component](analytics.md#lis
 
 In a usual scenario, we have configured multiple analysis instances for one mapped component where each instance analyzes different aspects of the component's operation. In most cases, we are interested in the performance of the component as a whole, i.e., we want to list results grouped by components.
 
-The `GET /v2/analytics/results` endpoints returns a list of the latest result for each analysis instance grouped by component \(component without analysis instances and analysis instances without results are left out\). 
+The `GET /v2/analytics/results` endpoints returns a list of the latest result for each analysis instance grouped by component \(components without analysis instances and analysis instances without results are left out\). 
 
 {% hint style="danger" %}
 **TODO**
@@ -554,7 +554,7 @@ The `GET /v2/analytics/results` endpoint will be released by January 31, 2020.
 
 ### Listing results per instance
 
-In the previous section, we queried results grouped by component. However, we only got the most recent results. If we want to take a deeper look and also investigate past results, we need to use the `GET /v2/analytics/instance/{instance_id}/results` endpoint which lists _all available_ results for a specific analysis instance \(as opposed to the previous `GET /v2/analytics/results endpoint` which listed only the most recent result per instance but for all instances and grouped by component\). 
+In the previous section, we queried results grouped by component. However, we only got the most recent results. If we want to take a deeper look and also investigate past results, we need to use the `GET /v2/analytics/instance/{instance_id}/results` endpoint which lists _all available_ results for a specific analysis instance \(as opposed to the previous `GET /v2/analytics/results` endpoint which listed only the most recent result per instance, but for all instances, and grouped by component\). 
 
 In the next example, we list all available results for analysis instance id = 318.
 
