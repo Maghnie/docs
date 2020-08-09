@@ -6,7 +6,7 @@ description: Specifications of the aedifion.io MQTT API
 
 ## Overview
 
-Part of the aedifion.io platform is a MQTT broker which serves as the single logical point of data ingress to the aedifion.io, e.g., all data collected in the field through the aedifion edge devices is ingested to aedifion.io through this MQTT broker and, in turn, can also be subscribed to. The MQTT broker is clustered, i.e., distributed over multiple independent servers, to ensure seamless scalability and high availability.
+Part of the aedifion.io platform is an MQTT broker which serves as the single logical point of data ingress to the aedifion.io, e.g., all data collected in the field through the aedifion edge devices is ingested to aedifion.io through this MQTT broker and, in turn, can also be subscribed to. The MQTT broker is clustered, i.e., distributed over multiple independent servers, to ensure seamless scalability and high availability.
 
 ## MQTT Broker 
 
@@ -25,7 +25,7 @@ aedifion currently maintains two MQTT brokers:
     * 8884 - MQTT over TLS 1.2 \(use in standalone clients\)
     * 9001 - MQTT over websockets over TLS 1.2 \(use from within browsers\)
 
-Both brokers only accepts TLS 1.2 encrypted connections, i.e., all plain TCP connections are rejected. The brokers certificate can be viewed, e.g., by connecting to [https://mqtt2.aedifion.io](https://mqtt2.aedifion.io) or [https://mqtt-dev.aedifion.io](https://mqtt-dev.aedifion.io) from any browser.
+Both brokers only accept TLS 1.2 encrypted connections, i.e., all plain TCP connections are rejected. The brokers' certificates can be viewed, e.g., by connecting to [https://mqtt2.aedifion.io](https://mqtt2.aedifion.io) or [https://mqtt-dev.aedifion.io](https://mqtt-dev.aedifion.io) from any browser.
 
 ![Server MQTT certificate of the production MQTT broker.](../../.gitbook/assets/mqtt_certificate.png)
 
@@ -58,7 +58,7 @@ Both brokers accept connections on two ports: 8884 and 9001. Port 8884 accepts _
 
 ### Authentication
 
-The MQTT brokers only accepts connections from _authenticated_ clients.
+The MQTT brokers only accept connections from _authenticated_ clients.
 
 After having established a TLS connection, the MQTT client has to present login credentials \(`username` and `password`\) to the MQTT broker. Client credentials can be obtained with limited and unlimited validity.
 
@@ -179,14 +179,14 @@ Explore our [HTTP API tutorials](../api-documentation/guides-and-tutorials/) or 
 }
 ```
 
-The response is in [JSON](https://www.json.org/) format  which can be easily parsed in any programming language. The _resource_ field contains the details of the newly created user \(not the password, of course, for security reasons\). Note that this request was posted at 16:23h CET and with a requested validity of 1 hour, i.e., exactly 16:23h UTC since CET = UTC + 1.
+The response is in [JSON](https://www.json.org/) format, which can be easily parsed in any programming language. The _resource_ field contains the details of the newly created user \(not the password, of course, for security reasons\). Note that this request was posted at 16:23h CET and with a requested validity of 1 hour, i.e., exactly 16:23h UTC since CET = UTC + 1.
 
 After the MQTT account expires it will be automatically removed. You can either create a new account with the same username afterwards or renew the existing account before it expires using the `PUT /v2/project/{project_id}/mqttuser/{mqttuser_id}` endpoint. This endpoint generally allows you to modify the MQTT user account. It accepts the following parameters:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>Paramater</b>
+      <th style="text-align:left"><b>Parameter</b>
       </th>
       <th style="text-align:center">Datatype</th>
       <th style="text-align:center">Type</th>
@@ -304,7 +304,7 @@ As per [MQTT 3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os
 There can only be _one_ connection per `client_id` per Broker. If two clients connect with the same `client_id`the older connection is terminated in favor of the newer. This restriction does not extend to your login credentials. You can open multiple connections using the same login credentials as long as you use a different `client_id` for each concurrent connection. 
 
 {% hint style="success" %}
-Choose a `client_id` and avoid special characters. Postfix the `client_id` with a random string oder integer to ensure it is unique across concurrent connections.
+Choose a `client_id` and avoid special characters. Postfix the `client_id` with a random string or integer to ensure it is unique across concurrent connections.
 {% endhint %}
 
 ### **Authorization**
@@ -313,7 +313,7 @@ The MQTT broker _authorizes_ clients to subscribe and publish based on _topics._
 
 Once connected and authenticated, the client can publish or subscribe to one or multiple topics \[1,2\] - but not without authorization. To subscribe, the client needs _read access_ to that topic. To publish, the client needs _write access_. Note that _write access_ implies _read access_.
 
-Authorization is specified through a list of topics \(following exactly MQTT's topic syntax and semantics \[1,2\]\) where for each topic is specified whether the user has read or read/write access. Make sure to familiarize yourself with MQTT's topic structure, especially with hierarchy levels and the `#` wildcard \[1,2\].
+Authorization is specified through a list of topics \(following exactly MQTT's topic syntax and semantics \[1,2\]\) where for each topic it is specified whether the user has read or read/write access. Make sure to familiarize yourself with MQTT's topic structure, especially with hierarchy levels and the `#` wildcard \[1,2\].
 
 ## Topic hierarchy 
 
@@ -343,7 +343,7 @@ The postfix matching the `#` can generally have arbitrary length or structure as
 
   For efficiency reasons, the edge device uses short 4 to 12 characters long identifiers generated from the full datapoint names, for example: `load-balancing-group/project-handle/0OHgK8nP`. aedifion's hash identifiers are built as follows:
 
-  1. Built SHA1 hash of the UTF-8 encoded datapoint id.
+  1. Build SHA1 hash out of the UTF-8 encoded datapoint id.
   2. Cut the first `hash_id_length` characters where `hash_id_length` is configured individually per project \(default = 8\).
   3. base62-encode the shortened hash.  
   
@@ -371,7 +371,7 @@ It is important to note two things about publishing your own data via MQTT:
 
 ## Payload format 
 
-The payload format depends on type of the topic published to or subscribed from. There are three types of topics on the aedifion.io platform:
+The payload format depends on the type of the topic published to or subscribed from. There are three types of topics on the aedifion.io platform:
 
 * Timeseries data topics: These topics are used to send and receive timeseries data from buildings. They are usually in the form `<load balance group>/<project handle>`
 * Meta data topics: These topics are used to send and receive meta data from buildings. They are usually in the form `META/<load balance group>/<project handle>`
@@ -493,7 +493,7 @@ Head over to the [SWOP protocol specifications](https://aedifion.gitlab.io/swop)
 
 ## Fair use 
 
-We as aedifion give our best to ensure seamless scalability and highest availability of our MQTT services. Since we give priority to a clean and simple user experience, we currently do not enforce any rate limits on the MQTT ingress and egress. Deliberately, this allows you to send bursts of data, e.g., to import a batch of historical data.
+We as aedifion give our best to ensure seamless scalability and the highest availability of our MQTT services. Since we give priority to a clean and simple user experience, we currently do not enforce any rate limits on the MQTT ingress and egress. Deliberately, this allows you to send bursts of data, e.g., to import a batch of historical data.
 
 This being said, we will negotiate a quota with each customer that we consider the basis of fair use of our MQTT services. In favor of your user experience, this quota will be monitored but not strictly enforced. aedifion reserves the right to technically enforce the fair use quota on repeated violations without prior notice.
 
