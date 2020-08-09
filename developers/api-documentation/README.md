@@ -21,7 +21,7 @@ All our HTTP API endpoints use the [JSON](https://www.json.org/) format to encod
 We make consistent use of HTTP methods:
 
 * `GET` methods are used exclusively to query existing resources and will never trigger any modification of resources. In many cases, you can query single resources by providing a unique identifier or a list of resources of the same type. On success, they directly return the queried resource\(s\).
-* `POST` methods are used exclusively to create new resources that previously did no exist, such as new users, projects, or tags. They return a _Success_ object containing the created resource or an _Error_ object with a message that indicates why creating the resource failed.
+* `POST` methods are used exclusively to create new resources that previously did not exist, such as new users, projects, or tags. They return a _Success_ object containing the created resource or an _Error_ object with a message that indicates why creating the resource failed.
 * `PUT` methods are used exclusively to modify existing resources and thus always require a unique identifier of the resource to modify. They return a _Success_ object containing the modified resource or an _Error_ object with a message that indicates why modifying the reference resource failed.
 * `DELETE` methods are used exclusively to delete existing resources and thus always require a unique identifier of the resource to delete. They return a _Success_ object containing the modified resource or an _Error_ object with a message that indicates why modifying the reference resource failed.
 
@@ -43,7 +43,7 @@ Upon error, an appropriate error message is returned that indicates what went wr
 
 ### Transactional changes
 
-Any API call that touches resources through creation, modification, or deletion, will either succeed as a whole or fail without any modification done. If there occur any errors during a creation, modification, or deletion of an existing resource, all changes made up to that point are rolled back. Viewing an API call as an atomic transaction, the transaction is either made or not.
+Any API call that touches resources through creation, modification, or deletion, will either succeed as a whole or fail without any modification done. If any errors occur during a creation, modification, or deletion of an existing resource, all changes made up to that point are rolled back. Viewing an API call as an atomic transaction, the transaction is either made completely or not at all.
 
 ## Accessing the HTTP API
 
