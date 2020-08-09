@@ -272,7 +272,7 @@ Before we use that endpoint to shoot a couple of example queries for the data, l
 
 {% file src="../../../.gitbook/assets/sun\_degrees\_over\_horizon.csv" caption="Sun\'s position over the horizon" %}
 
-This dataset describes the degree of the sun over the horizon by calendar days. With day 0 equal to new year's, the data looks like this:
+This dataset describes the degree of the sun's position over the horizon by calendar days. With day 0 equal to new year's, the data looks like this:
 
 ![](../../../.gitbook/assets/sun-degrees.png)
 
