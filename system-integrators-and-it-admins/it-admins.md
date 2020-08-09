@@ -20,9 +20,9 @@ For any support, please do not hesitate to [contact us](../contact.md)!
 
 ## Preconfigurations
 
-Before shipping, aedifion's staff needs to set some preconfigurations to account for seamless and plug-and-play plant integration. This section describes the information we need.
+Before shipping, aedifion's staff needs to set some preconfigurations to account for seamless plug-and-play plant integration. This section describes the information we need.
 
-Please provide the name of a contact person and a post address that aedifion can ship the edge device to. 
+Please provide the name of a contact person and a postal address that aedifion can ship the edge device to. 
 
 To preconfigure the edge device, please provide information about the settings of the network\(s\) the device will be connected to. The following flow chart helps you determine that information.
 
