@@ -6,7 +6,7 @@ description: Tutorial for creating and managing alerts on time series and meta-d
 
 ## Overview
 
-In this article, you will learn how to set up alarms on time series and meta-data on the aedifion.io platform. Currently, the aedifion.io platform supports two types of alarms: i\) alarms on the observations for a datapoint and ii\) alarms on the throughput \(i.e., received observations per time interval\) of a certain datapoint or whole project \(please refer to our [Glossary](../../../glossary.md) if the terms datapoint and observation seem strange to you\). You will specify one of each and configure it to send out notifications on alarm events via the Telegram instant messenger or email.
+In this article, you will learn how to set up alarms on time series and meta-data on the aedifion.io platform. Currently, the aedifion.io platform supports two types of alarms: i\) alarms on the observations for a datapoint and ii\) alarms on the throughput \(i.e., received observations per time interval\) of a certain datapoint or a whole project \(please refer to our [Glossary](../../../glossary.md) if the terms datapoint and observation seem vague to you\). You will specify one of each and configure it to send out notifications on alarm events via the Telegram instant messenger or email.
 
 ### Preliminaries
 
@@ -29,7 +29,7 @@ Further types of alarms will be added in future. If you have a special request, 
 
 ## Adding alarms
 
-A new alarm is created through the `POST /v2/project/{project_id}/alert` endpoint. The parameters that specify the alarm must be encoded as a [JSON](https://www.json.org/) object and send in the body of the request. Since the list of parameters is quite involved, we start with the set of parameters for threshold alarms.
+A new alarm is created through the `POST /v2/project/{project_id}/alert` endpoint. The parameters that specify the alarm must be encoded as a [JSON](https://www.json.org/) object and sent in the body of the request. Since the list of parameters is quite involved, we start with the set of parameters for threshold alarms.
 
 ### Adding a threshold alarm
 
@@ -256,7 +256,7 @@ The JSON-formatted response confirms that the alarm was successfully created and
 
 Note that the alarm has received a unique numeric id \(6\), the period of 2 hours has been translated into nanoseconds, and it has already been enabled.
 
-You may already receive alarms or try to provoke some by gathering a few people in your office or by directly breathing into the CO2 sensor. Otherwise, don't worry, we will later [modify the alarm](alarming.md#modifying-alarms) such that it will definitely trigger alarms even without having a party in your office. Before, we add an alarm of the second type, i.e., throughput.
+You may already receive alarms or try to provoke some by gathering a few people in your office or by directly breathing into the CO2 sensor. Otherwise, don't worry, we will later [modify the alarm](alarming.md#modifying-alarms) such that it will definitely trigger alarms even without having a party in your office. But first, we will add an alarm of the second type, i.e., throughput.
 
 ### Adding a throughput alarm
 
@@ -477,7 +477,7 @@ We would now need to
 
 ## Modifying alarms
 
-The previous alarm might have been set to defensively and not trigger unless there is small party going on in your office. In order to provoke an alert, we now set a ridiculously low _threshold\_crit_ and also define a much shorter reminder period for the repetition of the alarms.
+The previous alarm might have been set to defensively not trigger unless there is a small party going on in your office. In order to provoke an alert, we now set a ridiculously low _threshold\_crit_ and also define a much shorter reminder period for the repetition of the alarms.
 
 {% tabs %}
 {% tab title="Python" %}
@@ -563,7 +563,7 @@ Follow the next four steps to plot the time series of a datapoint on which a thr
 
 ![](../../../.gitbook/assets/alert_plot_04.png)
 
-In this example, we can observe that CO2 level started to rise rapidly with the beginning of the workday. This is quite normal and nothing to worry about.
+In this example, we can observe that the CO2 level started to rise rapidly with the beginning of the workday. This is quite normal and nothing to worry about.
 
 ### Plotting a throughput alarm
 
@@ -713,11 +713,11 @@ The response confirms the deletion and returns the details of the deleted alarm.
 }
 ```
 
-Go ahead and delete also the throughput alarm then call `GET /v2/project/{project_id}/alerts`  to verify that both alarms are really gone.
+Go ahead and also delete the throughput alarm then call `GET /v2/project/{project_id}/alerts`  to verify that both alarms are really gone.
 
 ## Enabling Alarm Dashboard
 
-To enable option for posting alerts to our Alarm Dashboard, some prerequisites have to be met.
+To enable the option for posting alerts to our Alarm Dashboard, some prerequisites have to be met.
 
 ### Setting up customer on Alarm Dashboard
 
