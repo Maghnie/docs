@@ -10,7 +10,7 @@ Introduction
 
 Analytics pursues only one goal: Guide technicians and building users to improve the operational performance of buildings and energy systems, while the benefits of improved operational performance are multilateral:
 
-* Higher **comfort**, **well being** and therefore the **performance** of people in buildings.
+* Higher **comfort**, means higher **well being** and therefore **performance** of people in buildings.
 * Higher **energy efficiency** providing comfort and energy services.
 * Lower effort **maintaining** and **servicing** complex technical facilities.
 
@@ -38,14 +38,14 @@ In general, you can expect a short case study on how the analysis function was a
 
 ### Results
 
-Results of analytics functions are structured to deliver simple to navigate insights and fast to apply measures on how to improve operational performance. 
+Results of analytics functions are structured to deliver simple-to-navigate insights and fast-to-apply measures on how to improve operational performance. 
 
 Therefore, each result regardless of the analytics function includes
 
 * one qualitative **warning level**, ****aka. traffic light color,
 * one **interpretation,**
 * zero to n **recommendations,**
-* zero to n **KPIs, and**
+* zero to n **KPIs**, and
 * zero to n **timeseries.**
 
 These categories are explained below. While the warning level, interpretation, and recommendation are specified for all analysis functions equally, KPIs and timeseries differ between each analysis function. 
@@ -74,11 +74,11 @@ In the engineering vocabulary of Fault Detection and Diagnosis \(FDD\), the inte
 
 #### Recommendation
 
-Recommendations is a list of 0 \(for sufficient operational performance\) to n measurements on how to correct the reason for the detected symptom for suboptimal operation. Either by providing recommendations on how to correct the source of the symptom itself or on how to narrow down its cause.
+Recommendations is a list of 0 \(for sufficient operational performance\) to n measurements on how to correct the reason for the detected symptom for suboptimal operation. Either by providing recommendations on how to correct the source of the symptom itself or on how to narrow down its causes.
 
 #### KPIs and timeseries
 
-KPIs and timeseries offer insights and transparency. They enable reporting and manual investigation of the operational behavior the component or system analyzed. KPIs and timeseries are highly individual for each function and are explained in the respective specification of each analysis function in _Results_. 
+KPIs and timeseries offer insights and transparency. They enable reporting and manual investigation of the operational behavior of the component or system analyzed. KPIs and timeseries are highly individual for each function and are explained in the respective specification of each analysis function in _Results_. 
 
 ### Components
 
@@ -238,11 +238,11 @@ Any liquid media supply system, such as
 {% endtab %}
 
 {% tab title="Example" %}
-For this example we analyzed the temperature control loop of a supply air volume flow, which provides fresh air and heating to a large sales room. Figure 1 shows a plot of the process value of the control loop, the outlet temperature. The plot shows a oscillation of the outlet temperature during periods of operation.
+For this example we analyzed the temperature control loop of a supply air volume flow, which provides fresh air and heating to a large sales room. Figure 1 shows a plot of the process value of the control loop, the outlet temperature. The plot shows an oscillation of the outlet temperature during periods of operation.
 
 ![Figure 1: Oscillating processes value during operation](../.gitbook/assets/oscillating_control_loop.png)
 
-Figure 2 is a zoom of figure 1 to analyze the oscillation more into detail. The trajectory of the process value is common for control loops oscillating at medium frequency.
+Figure 2 is a zoom of figure 1 to analyze the oscillation into more detail. The trajectory of the process value is common for control loops oscillating at medium frequency.
 
 ![Figure 2: Oscillating process value during operation in detail](../.gitbook/assets/oscillating_control_lopp_zoom.png)
 
@@ -256,7 +256,7 @@ The _Control Loop Analysis_ evaluated this oscillation as significant, signal co
 | :--- | :--- | :--- |
 | red | No | _Red_ as a signal for a low cost measure with high impact on the building operation will not be provided. |
 | yellow | Yes | An oscillating control loop is a symptom for suboptimal control parameters or component design. Investing the extra effort to identify the root cause and fixing it is strongly recommended. |
-| green | Yes | No or only slight, in respect to usual tolerances in buildings, negligible oscillation |
+| green | Yes | No or only slight, in respect to usual tolerances in buildings, negligible oscillation. |
 
 ## Interpretations
 
@@ -301,7 +301,8 @@ The _Control Loop Analysis_ evaluated this oscillation as significant, signal co
 {% endtab %}
 
 {% tab title="Application" %}
-## Recommended Time Span
+## 
+Recommended Time Span
 
 ### 1 day to 1 week
 
@@ -317,7 +318,7 @@ The _Control Loop Analysis_ evaluated this oscillation as significant, signal co
 
 ## **Dew Point Alert Analysis**
 
-Building automation systems often have dew point alert messages which identify the possibility of unwanted condensation taking place in rooms. If the dew point alert message is active for any amount of time during the period of analysis, a recommendation is made to the user since rooms condensation in rooms can be damaging. Furthermore, if the temperature and relative humidity of the room are known, the _DewPointAlertAnalysis_ calculates the risk of condensation and takes these into account in the evaluation.  The _DewPointAlertAnalysis_ is recommended for any room with an existing dew point alert signal or with temperature and relative humidity sensors. 
+Building automation systems often have dew point alert messages which identify the possibility of unwanted condensation taking place in rooms. If the dew point alert message is active for any amount of time during the period of analysis, a recommendation is made to the user since condensation in rooms can be damaging. Furthermore, if the temperature and relative humidity of the room are known, the _DewPointAlertAnalysis_ calculates the risk of condensation and takes these into account in the evaluation.  The _DewPointAlertAnalysis_ is recommended for any room with an existing dew point alert signal or with temperature and relative humidity sensors. 
 
 {% tabs %}
 {% tab title="Summary" %}
@@ -436,11 +437,11 @@ The _Fan Speed Analysis_ evaluates whether a fan is controlled, based on its fan
 {% endtab %}
 
 {% tab title="Example" %}
-In this example we look at a _Fan Speed Analysis of_  the historic 7 day fan speed. While the Operating Message \(grey in the plot below\) show the times when the fan was operated, the fan speed \(blue in the plot below\) corresponds to the speed or load setting of the fan.
+In this example we look at a _Fan Speed Analysis_ of the historic 7 day fan speed. While the Operating Message \(grey in the plot below\) shows the times when the fan was operated, the fan speed \(blue in the plot below\) corresponds to the speed or load setting of the fan.
 
 ![](../.gitbook/assets/fanspeedanalysis.png)
 
-From the analysis results we can see that the fan was operated for 6 hours out of the 168 hours of the week or 3.57 % of the week. Additionally we get statistics of the fan speed, f.e. the fan was operated at an average of 40 % load.
+From the analysis results we can see that the fan was operated for 6 hours out of the 168 hours of the week or 3.57 % of the week. Additionally we get statistics of the fan speed, e.g. the fan was operated at an average of 40 % load.
 
 This corresponds to a static fan speed setting that is currently not controlled. To improve energy efficiency and thermal comfort you can consider different control strategies outlined in the recommendations.
 
@@ -517,7 +518,7 @@ statistics for "speed" will be calculated for all measured values that are not 0
 
 ## Filter Servicing Analysis
 
-The _Filter Servicing Analysis_ predicts when a filter is due to be serviced or replaced, based on filter contamination or the pressure difference over the filter. This ensures that filters always function optimally and maintained or replaced as required.
+The _Filter Servicing Analysis_ predicts when a filter is due to be serviced or replaced, based on filter contamination or the pressure difference over the filter. This ensures that filters always function optimally and are maintained or replaced as required.
 
 {% tabs %}
 {% tab title="Summary" %}
@@ -608,7 +609,7 @@ The signal analysis returns a green signal color since there is a significant am
 
 ## Humidity Conditioning Analysis 
 
-The _Humidity Conditioning Analysis_ compares the outside air humidy with the actual supply air humidity of the a Air Handling Unit \(AHU\). 
+The _Humidity Conditioning Analysis_ compares the outside air humidy with the actual supply air humidity of the Air Handling Unit \(AHU\). 
 
 {% hint style="info" %}
 This analysis does not take into account air recirculation and humidity recovery modes. Make sure that the system is operated without such operational modes.
@@ -636,7 +637,7 @@ This example shows a week of analysis for a summer scenario in July. The AHU is 
 
 ![](../.gitbook/assets/humidifier_analysis.png)
 
-The analysis uses two positions, intake \(outside conditions\) and outlet \(supply conditions\) to calculate water loads. A difference of these water loads corresponds to the pink line at the bottom. The operating hours will now be divided into three categories. Hours of humidification, hours of dehumidification and hours of neither humidification nor dehumidification. These values are then compared to the expected hours in these categories derived from outside conditions. The total hours of correct operation \(according to the expectation\) and then evaluated for a recommendation.
+The analysis uses two positions, intake \(outside conditions\) and outlet \(supply conditions\) to calculate water loads. A difference of these water loads corresponds to the pink line at the bottom. The operating hours will now be divided into three categories. Hours of humidification, hours of dehumidification and hours of neither humidification nor dehumidification. These values are then compared to the expected hours in these categories derived from outside conditions. The total hours of correct operation \(according to the expectation\) are then evaluated for a recommendation.
 
 | KPI | Value | Unit |
 | :--- | :--- | :--- |
@@ -694,8 +695,8 @@ The analysis uses two positions, intake \(outside conditions\) and outlet \(supp
 | dehumidification missing | The amount of time the component did not operate in dehumidification mode but should | 0 to inf | h |
 | humidification unnecessary | The amount of time the component operated in humidification mode but should not | 0 to inf | h |
 | dehumidification unnecessary | The amount of time the component operated in dehumidification mode but should not | 0 to inf | h |
-| total hours savings possible.relative | Percentage of time de- or humidification can be switched off according to outside air conditions relative to operating time | 0 to 100 | % |
-| total hours increase air quality.relative | Percentage of time de- or humidification should be switched on according to outside air conditons relative to operating time | 0 to 100 | % |
+| total hours savings possible.relative | Percentage of time (de)humidification can be switched off according to outside air conditions relative to operating time | 0 to 100 | % |
+| total hours increase air quality.relative | Percentage of time (de)humidification should be switched on according to outside air conditions relative to operating time | 0 to 100 | % |
 {% endtab %}
 
 {% tab title="Components" %}
@@ -820,7 +821,8 @@ The automated interpretation confirms our visual analysis of the time series sho
 
 ## KPIs
 
-### Operating time
+### 
+Operating time
 
 Operating times KPIs provide information on the total time of operation of the analysed component during the analysed time span.
 
@@ -839,7 +841,7 @@ The Start KPI is the count of starts of the analysed component during the analys
 
 ### Closed operating cycle
 
-A _closed operating cycle_ is defined as _period of time between a start_ $$n_i$$_of the component an the next start_ $$n_{i+1}$$. The KPI _closed operating cycles_ represents the number of cycles observed during the analysed time span used to determine the operating cycle KPIs \(_cycle times, duty times, switch-off times_\).
+A _closed operating cycle_ is defined as _period of time between a start_ $$n_i$$_of the component and the next start_ $$n_{i+1}$$. The KPI _closed operating cycles_ represents the number of cycles observed during the analysed time span used to determine the operating cycle KPIs \(_cycle times, duty times, switch-off times_\).
 
 | KPI Identifier | Description | Value Range | Unit |
 | :--- | :--- | :--- | :--- |
@@ -1543,7 +1545,7 @@ PIN\_NAME refers to the actual pin on the component that the KPI belongs to.
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">humdity</td>
+      <td style="text-align:left">humidity</td>
       <td style="text-align:left">no</td>
       <td style="text-align:left">
         <p>low limit = 0</p>
@@ -1687,7 +1689,7 @@ In this scenario, figure 1 shows the timeseries recorded for an exemplary period
 
 | Available | Info |
 | :--- | :--- |
-| Yes | Recommendations to improve fresh air supply, if necessary or re-calibrate the sensor, if physically implausible measures are observed. No recommendation, in case of sufficient air quality |
+| Yes | Recommendations to improve fresh air supply, if necessary, or re-calibrate the sensor, if physically implausible measures are observed. No recommendation, in case of sufficient air quality |
 
 ## KPIs
 
@@ -1740,7 +1742,7 @@ Providing deeper insights to the carbon dioxide concentrations over the analysed
       <td style="text-align:left">no</td>
       <td style="text-align:left">
         <p>Mapping of either <b>presence (preferred)</b> or <b>operating message</b> is
-          strongly recommended. If both pins are mapped, pressence is used</p>
+          strongly recommended. If both pins are mapped, presence is used</p>
         <p>Default: Always presence</p>
       </td>
     </tr>
@@ -1749,7 +1751,7 @@ Providing deeper insights to the carbon dioxide concentrations over the analysed
       <td style="text-align:left">no</td>
       <td style="text-align:left">
         <p>Mapping of either <b>presence (preferred)</b> or <b>operating message</b> is
-          strongly recommended. If both pins are mapped, pressence is used</p>
+          strongly recommended. If both pins are mapped, presence is used</p>
         <p>Default: Always presence</p>
       </td>
     </tr>
@@ -1758,7 +1760,8 @@ Providing deeper insights to the carbon dioxide concentrations over the analysed
 {% endtab %}
 
 {% tab title="Application" %}
-##  Recommended Time Span
+## 
+ Recommended Time Span
 
 ### 1 days to 1 week
 
@@ -1798,13 +1801,13 @@ Any HVAC component or room whose usage follows a recurrent schedule, such as
 
 ## Checked conditions
 
-* Component operation outside a user defined schedule
-* Component operation during a user defined schedule
+* Component operation outside a user-defined schedule
+* Component operation during a user-defined schedule
 * Condition checks on times of components operation
 {% endtab %}
 
 {% tab title="Example" %}
-This example shows a **schedule analysis** for a component "[fan](https://docs.aedifion.io/docs/engineers/specifications/component-data-models#fan)" connected to a supply fan operating message of a HVAC machine. The switch on/off times of the machine are shown as a blue line in figure 1, blue regions in the background correspond to the anticipated schedule.
+This example shows a **schedule analysis** for a component "[fan](https://docs.aedifion.io/docs/engineers/specifications/component-data-models#fan)" connected to a supply fan operating message of an HVAC machine. The switch on/off times of the machine are shown as a blue line in figure 1, blue regions in the background correspond to the anticipated schedule.
 
 ![Figure 1: Operating times of component and reference schedule](../.gitbook/assets/example_scheduleanalysis.png)
 
@@ -2233,7 +2236,8 @@ The following KPIs show that a reduction of ~9% of the total operating time is p
 {% endtab %}
 
 {% tab title="Application" %}
-## Recommended Time Span
+## 
+Recommended Time Span
 
 ### 1 week
 
@@ -2269,7 +2273,7 @@ The _Thermal Comfort Analysis_ evaluates the comfort level of a room by determin
 {% endtab %}
 
 {% tab title="Example" %}
-For this example we look at a room for an analysis period of two days. In this time we can categorize the room comfort level according to the comfort level categories in the table below. The PMV level stayes inside the neutral category for the whole 48 hours.
+For this example we look at a room for an analysis period of two days. In this time we can categorize the room comfort level according to the comfort level categories in the table below. The PMV level stays inside the neutral category for the whole 48 hours.
 
 ![](../.gitbook/assets/thermal_comfort_analysis.png)
 
@@ -2357,13 +2361,13 @@ Following the Climate Assessment Scale of DIN EN ISO 7730, 2006 with
 | predicted mean vote.median | Median of PMV for analysis period | -3 to 3 | - |
 | predicted mean vote.maximum | Maximum PMV reached during analysis period | -3 to 3 | - |
 | predicted mean vote.minimum | Minimum PMV reached during analysis period | -3 to 3 | - |
-| duration.predicted mean vote.hot | Duration the PMV is classfied as hot | 0 to inf | h |
-| duration.predicted mean vote.warm | Duration the PMV is classfied as warm | 0 to inf | h |
-| duration.predicted mean vote.warmish | Duration the PMV is classfied as warmish | 0 to inf | h |
-| duration.predicted mean vote.neutral | Duration the PMV is classfied as neutral | 0 to inf | h |
-| duration.predicted mean vote.coolish | Duration the PMV is classfied as coolish | 0 to inf | h |
-| duration.predicted mean vote.cool | Duration the PMV is classfied as cool | 0 to inf | h |
-| duration.predicted mean vote.cold | Duration the PMV is classfied as cold | 0 to inf | h |
+| duration.predicted mean vote.hot | Duration the PMV is classified as hot | 0 to inf | h |
+| duration.predicted mean vote.warm | Duration the PMV is classified as warm | 0 to inf | h |
+| duration.predicted mean vote.warmish | Duration the PMV is classified as warmish | 0 to inf | h |
+| duration.predicted mean vote.neutral | Duration the PMV is classified as neutral | 0 to inf | h |
+| duration.predicted mean vote.coolish | Duration the PMV is classified as coolish | 0 to inf | h |
+| duration.predicted mean vote.cool | Duration the PMV is classified as cool | 0 to inf | h |
+| duration.predicted mean vote.cold | Duration the PMV is classified as cold | 0 to inf | h |
 
 ### Predicted Percentage of Dissatisfied - PPD
 
@@ -2422,7 +2426,7 @@ According to norm DIN EN 15251, 2007
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">humdity</td>
+      <td style="text-align:left">humidity</td>
       <td style="text-align:left">yes</td>
       <td style="text-align:left"></td>
     </tr>
@@ -2436,7 +2440,7 @@ According to norm DIN EN 15251, 2007
       <td style="text-align:left">no</td>
       <td style="text-align:left">
         <p>Mapping of either <b>presence (preferred)</b> or <b>operating message</b> is
-          strongly recommended. If both pins are mapped, pressence is used</p>
+          strongly recommended. If both pins are mapped, presence is used</p>
         <p>Default: Always presence</p>
       </td>
     </tr>
@@ -2445,7 +2449,7 @@ According to norm DIN EN 15251, 2007
       <td style="text-align:left">no</td>
       <td style="text-align:left">
         <p>Mapping of either <b>presence (preferred)</b> or <b>operating message</b> is
-          strongly recommended. If both pins are mapped, pressence is used</p>
+          strongly recommended. If both pins are mapped, presence is used</p>
         <p>Default: Always presence</p>
       </td>
     </tr>
@@ -2776,7 +2780,7 @@ General information KPIs to give further insight into the setpoint compliance ov
 
 ## Synchronized Operation Analysis
 
-The _Synchronized Operatio_n _Analysis_ detects whether the operation of the analyzed components is synchronized correctly. E.g., the pump of a thermal control loop is operating while the 2-way valve is closed or rather almost closed. If pumps continue to be operated with the valve closed, this leads to unnecessary power consumption and higher wear of the pump due to the additional running time. A valve opening of 10 % or less is considered as closed.
+The _Synchronized Operation Analysis_ detects whether the operation of the analyzed components is synchronized correctly. E.g., the pump of a thermal control loop is operating while the 2-way valve is closed or rather almost closed. If pumps continue to be operated with the valve closed, this leads to unnecessary power consumption and higher wear of the pump due to the additional running time. A valve opening of 10 % or less is considered as closed.
 
 {% tabs %}
 {% tab title="Summary" %}
@@ -2859,7 +2863,8 @@ Apply only for 2-way valve systems
 {% endtab %}
 
 {% tab title="Application" %}
-## Recommended Time Span
+## 
+Recommended Time Span
 
 ### 1 week
 
@@ -2875,7 +2880,7 @@ Apply only for 2-way valve systems
 
 ## **Temperature Spread Analysis**
 
-The _Temperature Spread Analysis_ assesses the temperature difference between a supply and return temperature sensor of a heat or cold distribution system during the systems operation. While a small temperature spread indicates the potential for volume flow and therefor pump power consumption reduction, a huge spread indicates thermal under supply of the downstream systems and consumers.
+The _Temperature Spread Analysis_ assesses the temperature difference between a supply and return temperature sensor of a heat or cold distribution system during the system's operation. While a small temperature spread indicates the potential for volume flow and therefor pump power consumption reduction, a huge spread indicates thermal under supply of the downstream systems and consumers.
 
 {% tabs %}
 {% tab title="Summary" %}
@@ -2900,7 +2905,7 @@ Heat and cold distribution systems, such as
 {% endtab %}
 
 {% tab title="Example" %}
-The **temperature spread analysis** was applied to a heating circuit instanciated as a [thermal control loop](https://docs.aedifion.io/docs/engineers/specifications/component-data-models#thermal-control-loop).
+The **temperature spread analysis** was applied to a heating circuit instantiated as a [thermal control loop](https://docs.aedifion.io/docs/engineers/specifications/component-data-models#thermal-control-loop).
 
 ![Figure 1: Outlet temperature and return temperature of the thermal control loop](../.gitbook/assets/example_temperaturespreadanalysis.png)
 
@@ -3153,7 +3158,7 @@ Heat and cold conversion or distribution systems, such as
 {% tab title="Example" %}
 
 
-The _Virtual Heat Meter_ ****was tested in the field, on a boilder at the E.ON Energy Research Center, RWTH Aachen University. Thus, a [boiler ](component-data-models.md#heat-pump)was instanced and the respective datapoints pinned to it. __Figure 1 shows the inlet- and outlet timeseries recorded for an exemplary period, along with the heat flow calculated. The volume flow during the observed period was constant.
+The _Virtual Heat Meter_ ****was tested in the field, on a boiler at the E.ON Energy Research Center, RWTH Aachen University. Thus, a [boiler ](component-data-models.md#heat-pump)was instanced and the respective datapoints pinned to it. __Figure 1 shows the inlet- and outlet timeseries recorded for an exemplary period, along with the heat flow calculated. The volume flow during the observed period was constant.
 
 ![Figure 1: Heat flow determined by the virtual heat meter](../.gitbook/assets/image%20%2832%29.png)
 {% endtab %}
@@ -3424,7 +3429,7 @@ The Virtual Heat Meter is determined on the condenser and evaporator side depend
 
 #### volume\_flow\_unit:
 
-The unit used in this datapoint needs to be specified in order for the analysis to yield correct result. If unspecified, the default unit assumed for this measurement is _litersPerSecond_. Acceptable inputs for this attribute include: 
+The unit used in this datapoint needs to be specified in order for the analysis to yield correct results. If unspecified, the default unit assumed for this measurement is _litersPerSecond_. Acceptable inputs for this attribute include: 
 
 * _cubicMetersPerSecond_
 * _cubicMetersPerMinute_
@@ -3469,7 +3474,7 @@ The _Weather Station Analysis_ identifies installation errors and measurement of
 * Offset between measured outdoor air temperature and weather service reference data
 * Offset between measured outdoor air humidity and weather service reference data
 * Outdoor air temperature sensor is influenced by solar radiation
-* Outdoor air temperature sensor is influenced by it's surrounding, e.g. exhaust gases
+* Outdoor air temperature sensor is influenced by its surrounding, e.g. exhaust gases
 * Outdoor air measures are compliant to weather service reference data
 {% endtab %}
 
@@ -3478,7 +3483,7 @@ For this _Weather Station Analysis_ we instantiated a [weather station](https://
 
 ![Figure 1: Measured data outdoor air temperature and reference outdoor air temperature](../.gitbook/assets/example_outdoortemperaturesensoranalysis.png)
 
-In figure 1 you can see a significant difference between sensor and weather reference data. This is also reflected in the value of the calculated KPIs. During the analysis period all 7 days are recognized by the KPI "radiation influenced days". Additionally the offset at night is elevated and thus a larger "sensor offset squared error" is present. The humidity sensor is checked accordingly. 
+In figure 1 you can see a significant difference between sensor and weather reference data. This is also reflected in the value of the calculated KPIs. During the analysis period all 7 days are recognized by the KPI as "radiation influenced days". Additionally the offset at night is elevated and thus a larger "sensor offset squared error" is present. The humidity sensor is checked accordingly. 
 
 | KPI | Value | Unit |
 | :--- | :--- | :--- |
